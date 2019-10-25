@@ -7,3 +7,37 @@ eureka:
 spring:
   application:
     name: manageHome
+  datasource:
+    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&serverTimezone=UTC&allowMultiQueries=true
+    username: root
+    password: root
+  redis:
+    database: 0
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 10
+        max-wait: -1
+        max-active: 200
+        min-idle: 0
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    port: 5672
+    listener:
+      direct:
+        retry:
+          enabled: true
+          max-attempts: 5
+          initial-interval: 5000
+          max-interval: 6000
+          multiplier: 20
+      simple:
+        default-requeue-rejected: true
+mybatis:
+  mapper-locations: classpath:/mappers/*.xml
+  type-aliases-package: com.mr.easy.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
