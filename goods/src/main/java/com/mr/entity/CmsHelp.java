@@ -1,44 +1,33 @@
 package com.mr.entity;
 
 import java.util.Date;
-
+/*
+* 帮助表
+* */
 public class CmsHelp {
     private Long id;
-
     private Long categoryId;
-
     private String icon;
-
     private String title;
-
     private Integer showStatus;
-
     private Date createTime;
-
     private Integer readCount;
-
     private String content;
-
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public Long getCategoryId() {
         return categoryId;
     }
-
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
-
     public String getIcon() {
         return icon;
     }
-
     public void setIcon(String icon) {
         this.icon = icon == null ? null : icon.trim();
     }
