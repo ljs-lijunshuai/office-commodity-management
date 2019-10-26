@@ -1,4 +1,4 @@
-package com.mr.util;
+package com.mr.util.rabbitMQ;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -22,7 +22,7 @@ public class TopicConfig {
     }
 
     @Bean
-    public Binding bindCoreQueueExchange(Queue coreQueue,TopicExchange coreExchange){
+    public Binding bindCoreQueueExchange(Queue coreQueue, TopicExchange coreExchange){
         return BindingBuilder.bind(coreQueue).to(coreExchange).with("mr.java1902.*");
     }
 
