@@ -1,9 +1,13 @@
 package com.mr.entity;
 
 import java.util.Date;
-/*
-* 帮助表
-* */
+/**
+ * @Description : 帮助实体类
+ * @author: 李军帅
+ * @date :2019/10/25
+ * @param : 
+ * @return :
+ */
 public class CmsHelp {
     private Long id;
     private Long categoryId;
@@ -13,6 +17,7 @@ public class CmsHelp {
     private Date createTime;
     private Integer readCount;
     private String content;
+   
     public Long getId() {
         return id;
     }
