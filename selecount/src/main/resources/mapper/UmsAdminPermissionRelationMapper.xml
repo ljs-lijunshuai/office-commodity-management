@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.UmsAdminPermissionRelationMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.UmsAdminPermissionRelation" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.UmsAdminPermissionRelation" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="admin_id" property="adminId" jdbcType="BIGINT" />
     <result column="permission_id" property="permissionId" jdbcType="BIGINT" />
@@ -20,13 +20,13 @@
     delete from ums_admin_permission_relation
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.UmsAdminPermissionRelation" >
+  <insert id="insert" parameterType="com.mr.entity.UmsAdminPermissionRelation" >
     insert into ums_admin_permission_relation (id, admin_id, permission_id, 
       type)
     values (#{id,jdbcType=BIGINT}, #{adminId,jdbcType=BIGINT}, #{permissionId,jdbcType=BIGINT}, 
       #{type,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.UmsAdminPermissionRelation" >
+  <insert id="insertSelective" parameterType="com.mr.entity.UmsAdminPermissionRelation" >
     insert into ums_admin_permission_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.UmsAdminPermissionRelation" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.UmsAdminPermissionRelation" >
     update ums_admin_permission_relation
     <set >
       <if test="adminId != null" >
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.UmsAdminPermissionRelation" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.UmsAdminPermissionRelation" >
     update ums_admin_permission_relation
     set admin_id = #{adminId,jdbcType=BIGINT},
       permission_id = #{permissionId,jdbcType=BIGINT},

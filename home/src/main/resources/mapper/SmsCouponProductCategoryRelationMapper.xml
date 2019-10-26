@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.SmsCouponProductCategoryRelationMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.SmsCouponProductCategoryRelation" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.SmsCouponProductCategoryRelation" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="coupon_id" property="couponId" jdbcType="BIGINT" />
     <result column="product_category_id" property="productCategoryId" jdbcType="BIGINT" />
@@ -21,7 +21,7 @@
     delete from sms_coupon_product_category_relation
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.SmsCouponProductCategoryRelation" >
+  <insert id="insert" parameterType="com.mr.entity.SmsCouponProductCategoryRelation" >
     insert into sms_coupon_product_category_relation (id, coupon_id, product_category_id, 
       product_category_name, parent_category_name
       )
@@ -29,7 +29,7 @@
       #{productCategoryName,jdbcType=VARCHAR}, #{parentCategoryName,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.SmsCouponProductCategoryRelation" >
+  <insert id="insertSelective" parameterType="com.mr.entity.SmsCouponProductCategoryRelation" >
     insert into sms_coupon_product_category_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -66,7 +66,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.SmsCouponProductCategoryRelation" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.SmsCouponProductCategoryRelation" >
     update sms_coupon_product_category_relation
     <set >
       <if test="couponId != null" >
@@ -84,7 +84,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.SmsCouponProductCategoryRelation" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.SmsCouponProductCategoryRelation" >
     update sms_coupon_product_category_relation
     set coupon_id = #{couponId,jdbcType=BIGINT},
       product_category_id = #{productCategoryId,jdbcType=BIGINT},

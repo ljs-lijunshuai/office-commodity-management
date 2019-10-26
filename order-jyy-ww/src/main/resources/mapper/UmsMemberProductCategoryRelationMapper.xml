@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.UmsMemberProductCategoryRelationMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.UmsMemberProductCategoryRelation" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.UmsMemberProductCategoryRelation" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="member_id" property="memberId" jdbcType="BIGINT" />
     <result column="product_category_id" property="productCategoryId" jdbcType="BIGINT" />
@@ -19,13 +19,13 @@
     delete from ums_member_product_category_relation
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.UmsMemberProductCategoryRelation" >
+  <insert id="insert" parameterType="com.mr.entity.UmsMemberProductCategoryRelation" >
     insert into ums_member_product_category_relation (id, member_id, product_category_id
       )
     values (#{id,jdbcType=BIGINT}, #{memberId,jdbcType=BIGINT}, #{productCategoryId,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.UmsMemberProductCategoryRelation" >
+  <insert id="insertSelective" parameterType="com.mr.entity.UmsMemberProductCategoryRelation" >
     insert into ums_member_product_category_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.UmsMemberProductCategoryRelation" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.UmsMemberProductCategoryRelation" >
     update ums_member_product_category_relation
     <set >
       <if test="memberId != null" >
@@ -62,7 +62,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.UmsMemberProductCategoryRelation" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.UmsMemberProductCategoryRelation" >
     update ums_member_product_category_relation
     set member_id = #{memberId,jdbcType=BIGINT},
       product_category_id = #{productCategoryId,jdbcType=BIGINT}

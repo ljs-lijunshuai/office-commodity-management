@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.OmsCartItemMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.OmsCartItem" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.OmsCartItem" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="product_id" property="productId" jdbcType="BIGINT" />
     <result column="product_sku_id" property="productSkuId" jdbcType="BIGINT" />
@@ -39,7 +39,7 @@
     delete from oms_cart_item
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.OmsCartItem" >
+  <insert id="insert" parameterType="com.mr.entity.OmsCartItem" >
     insert into oms_cart_item (id, product_id, product_sku_id, 
       member_id, quantity, price, 
       sp1, sp2, sp3, product_pic, 
@@ -55,7 +55,7 @@
       #{deleteStatus,jdbcType=INTEGER}, #{productCategoryId,jdbcType=BIGINT}, #{productBrand,jdbcType=VARCHAR}, 
       #{productSn,jdbcType=VARCHAR}, #{productAttr,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.OmsCartItem" >
+  <insert id="insertSelective" parameterType="com.mr.entity.OmsCartItem" >
     insert into oms_cart_item
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -188,7 +188,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.OmsCartItem" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.OmsCartItem" >
     update oms_cart_item
     <set >
       <if test="productId != null" >
@@ -254,7 +254,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.OmsCartItem" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.OmsCartItem" >
     update oms_cart_item
     set product_id = #{productId,jdbcType=BIGINT},
       product_sku_id = #{productSkuId,jdbcType=BIGINT},

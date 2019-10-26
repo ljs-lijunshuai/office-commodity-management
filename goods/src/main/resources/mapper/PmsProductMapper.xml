@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.PmsProductMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.PmsProduct" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.PmsProduct" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="brand_id" property="brandId" jdbcType="BIGINT" />
     <result column="product_category_id" property="productCategoryId" jdbcType="BIGINT" />
@@ -41,7 +41,7 @@
     <result column="brand_name" property="brandName" jdbcType="VARCHAR" />
     <result column="product_category_name" property="productCategoryName" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.mr.pojo.PmsProductWithBLOBs" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.mr.entity.PmsProductWithBLOBs" extends="BaseResultMap" >
     <result column="description" property="description" jdbcType="LONGVARCHAR" />
     <result column="detail_desc" property="detailDesc" jdbcType="LONGVARCHAR" />
     <result column="detail_html" property="detailHtml" jdbcType="LONGVARCHAR" />
@@ -70,7 +70,7 @@
     delete from pms_product
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.PmsProductWithBLOBs" >
+  <insert id="insert" parameterType="com.mr.entity.PmsProductWithBLOBs" >
     insert into pms_product (id, brand_id, product_category_id, 
       feight_template_id, product_attribute_category_id, 
       name, pic, product_sn, 
@@ -102,7 +102,7 @@
       #{productCategoryName,jdbcType=VARCHAR}, #{description,jdbcType=LONGVARCHAR}, #{detailDesc,jdbcType=LONGVARCHAR}, 
       #{detailHtml,jdbcType=LONGVARCHAR}, #{detailMobileHtml,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.PmsProductWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.mr.entity.PmsProductWithBLOBs" >
     insert into pms_product
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -361,7 +361,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.PmsProductWithBLOBs" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.PmsProductWithBLOBs" >
     update pms_product
     <set >
       <if test="brandId != null" >
@@ -490,7 +490,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mr.pojo.PmsProductWithBLOBs" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mr.entity.PmsProductWithBLOBs" >
     update pms_product
     set brand_id = #{brandId,jdbcType=BIGINT},
       product_category_id = #{productCategoryId,jdbcType=BIGINT},
@@ -535,7 +535,7 @@
       detail_mobile_html = #{detailMobileHtml,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.PmsProduct" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.PmsProduct" >
     update pms_product
     set brand_id = #{brandId,jdbcType=BIGINT},
       product_category_id = #{productCategoryId,jdbcType=BIGINT},

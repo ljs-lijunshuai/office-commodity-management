@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.OmsOrderSettingMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.OmsOrderSetting" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.OmsOrderSetting" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="flash_order_overtime" property="flashOrderOvertime" jdbcType="INTEGER" />
     <result column="normal_order_overtime" property="normalOrderOvertime" jdbcType="INTEGER" />
@@ -23,7 +23,7 @@
     delete from oms_order_setting
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.OmsOrderSetting" >
+  <insert id="insert" parameterType="com.mr.entity.OmsOrderSetting" >
     insert into oms_order_setting (id, flash_order_overtime, normal_order_overtime, 
       confirm_overtime, finish_overtime, comment_overtime
       )
@@ -31,7 +31,7 @@
       #{confirmOvertime,jdbcType=INTEGER}, #{finishOvertime,jdbcType=INTEGER}, #{commentOvertime,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.OmsOrderSetting" >
+  <insert id="insertSelective" parameterType="com.mr.entity.OmsOrderSetting" >
     insert into oms_order_setting
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -74,7 +74,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.OmsOrderSetting" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.OmsOrderSetting" >
     update oms_order_setting
     <set >
       <if test="flashOrderOvertime != null" >
@@ -95,7 +95,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.OmsOrderSetting" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.OmsOrderSetting" >
     update oms_order_setting
     set flash_order_overtime = #{flashOrderOvertime,jdbcType=INTEGER},
       normal_order_overtime = #{normalOrderOvertime,jdbcType=INTEGER},

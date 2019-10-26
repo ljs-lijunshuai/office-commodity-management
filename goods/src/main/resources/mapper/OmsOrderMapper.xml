@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.OmsOrderMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.OmsOrder" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.OmsOrder" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="member_id" property="memberId" jdbcType="BIGINT" />
     <result column="coupon_id" property="couponId" jdbcType="BIGINT" />
@@ -66,7 +66,7 @@
     delete from oms_order
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.OmsOrder" >
+  <insert id="insert" parameterType="com.mr.entity.OmsOrder" >
     insert into oms_order (id, member_id, coupon_id, 
       order_sn, create_time, member_username, 
       total_amount, pay_amount, freight_amount, 
@@ -100,7 +100,7 @@
       #{receiveTime,jdbcType=TIMESTAMP}, #{commentTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.OmsOrder" >
+  <insert id="insertSelective" parameterType="com.mr.entity.OmsOrder" >
     insert into oms_order
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -371,7 +371,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.OmsOrder" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.OmsOrder" >
     update oms_order
     <set >
       <if test="memberId != null" >
@@ -506,7 +506,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.OmsOrder" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.OmsOrder" >
     update oms_order
     set member_id = #{memberId,jdbcType=BIGINT},
       coupon_id = #{couponId,jdbcType=BIGINT},

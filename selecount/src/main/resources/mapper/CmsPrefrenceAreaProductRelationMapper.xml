@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.CmsPrefrenceAreaProductRelationMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.CmsPrefrenceAreaProductRelation" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.CmsPrefrenceAreaProductRelation" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="prefrence_area_id" property="prefrenceAreaId" jdbcType="BIGINT" />
     <result column="product_id" property="productId" jdbcType="BIGINT" />
@@ -19,13 +19,13 @@
     delete from cms_prefrence_area_product_relation
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.CmsPrefrenceAreaProductRelation" >
+  <insert id="insert" parameterType="com.mr.entity.CmsPrefrenceAreaProductRelation" >
     insert into cms_prefrence_area_product_relation (id, prefrence_area_id, product_id
       )
     values (#{id,jdbcType=BIGINT}, #{prefrenceAreaId,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.CmsPrefrenceAreaProductRelation" >
+  <insert id="insertSelective" parameterType="com.mr.entity.CmsPrefrenceAreaProductRelation" >
     insert into cms_prefrence_area_product_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.CmsPrefrenceAreaProductRelation" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.CmsPrefrenceAreaProductRelation" >
     update cms_prefrence_area_product_relation
     <set >
       <if test="prefrenceAreaId != null" >
@@ -62,7 +62,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.CmsPrefrenceAreaProductRelation" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.CmsPrefrenceAreaProductRelation" >
     update cms_prefrence_area_product_relation
     set prefrence_area_id = #{prefrenceAreaId,jdbcType=BIGINT},
       product_id = #{productId,jdbcType=BIGINT}

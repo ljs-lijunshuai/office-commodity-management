@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.CmsSubjectCommentMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.CmsSubjectComment" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.CmsSubjectComment" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="subject_id" property="subjectId" jdbcType="BIGINT" />
     <result column="member_nick_name" property="memberNickName" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from cms_subject_comment
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.CmsSubjectComment" >
+  <insert id="insert" parameterType="com.mr.entity.CmsSubjectComment" >
     insert into cms_subject_comment (id, subject_id, member_nick_name, 
       member_icon, content, create_time, 
       show_status)
@@ -31,7 +31,7 @@
       #{memberIcon,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{showStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.CmsSubjectComment" >
+  <insert id="insertSelective" parameterType="com.mr.entity.CmsSubjectComment" >
     insert into cms_subject_comment
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.CmsSubjectComment" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.CmsSubjectComment" >
     update cms_subject_comment
     <set >
       <if test="subjectId != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.CmsSubjectComment" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.CmsSubjectComment" >
     update cms_subject_comment
     set subject_id = #{subjectId,jdbcType=BIGINT},
       member_nick_name = #{memberNickName,jdbcType=VARCHAR},

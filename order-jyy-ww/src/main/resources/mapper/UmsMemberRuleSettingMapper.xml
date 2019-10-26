@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.UmsMemberRuleSettingMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.UmsMemberRuleSetting" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.UmsMemberRuleSetting" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="continue_sign_day" property="continueSignDay" jdbcType="INTEGER" />
     <result column="continue_sign_point" property="continueSignPoint" jdbcType="INTEGER" />
@@ -24,7 +24,7 @@
     delete from ums_member_rule_setting
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.UmsMemberRuleSetting" >
+  <insert id="insert" parameterType="com.mr.entity.UmsMemberRuleSetting" >
     insert into ums_member_rule_setting (id, continue_sign_day, continue_sign_point, 
       consume_per_point, low_order_amount, max_point_per_order, 
       type)
@@ -32,7 +32,7 @@
       #{consumePerPoint,jdbcType=DECIMAL}, #{lowOrderAmount,jdbcType=DECIMAL}, #{maxPointPerOrder,jdbcType=INTEGER}, 
       #{type,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.UmsMemberRuleSetting" >
+  <insert id="insertSelective" parameterType="com.mr.entity.UmsMemberRuleSetting" >
     insert into ums_member_rule_setting
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -81,7 +81,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.UmsMemberRuleSetting" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.UmsMemberRuleSetting" >
     update ums_member_rule_setting
     <set >
       <if test="continueSignDay != null" >
@@ -105,7 +105,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.UmsMemberRuleSetting" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.UmsMemberRuleSetting" >
     update ums_member_rule_setting
     set continue_sign_day = #{continueSignDay,jdbcType=INTEGER},
       continue_sign_point = #{continueSignPoint,jdbcType=INTEGER},

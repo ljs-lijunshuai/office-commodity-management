@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.OmsCompanyAddressMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.OmsCompanyAddress" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.OmsCompanyAddress" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="address_name" property="addressName" jdbcType="VARCHAR" />
     <result column="send_status" property="sendStatus" jdbcType="INTEGER" />
@@ -27,7 +27,7 @@
     delete from oms_company_address
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.OmsCompanyAddress" >
+  <insert id="insert" parameterType="com.mr.entity.OmsCompanyAddress" >
     insert into oms_company_address (id, address_name, send_status, 
       receive_status, name, phone, 
       province, city, region, 
@@ -37,7 +37,7 @@
       #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{region,jdbcType=VARCHAR}, 
       #{detailAddress,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.OmsCompanyAddress" >
+  <insert id="insertSelective" parameterType="com.mr.entity.OmsCompanyAddress" >
     insert into oms_company_address
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -104,7 +104,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.OmsCompanyAddress" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.OmsCompanyAddress" >
     update oms_company_address
     <set >
       <if test="addressName != null" >
@@ -137,7 +137,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.OmsCompanyAddress" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.OmsCompanyAddress" >
     update oms_company_address
     set address_name = #{addressName,jdbcType=VARCHAR},
       send_status = #{sendStatus,jdbcType=INTEGER},

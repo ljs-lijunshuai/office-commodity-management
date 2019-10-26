@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.UmsAdminMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.UmsAdmin" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.UmsAdmin" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -26,7 +26,7 @@
     delete from ums_admin
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.UmsAdmin" >
+  <insert id="insert" parameterType="com.mr.entity.UmsAdmin" >
     insert into ums_admin (id, username, password, 
       icon, email, nick_name, 
       note, create_time, login_time, 
@@ -36,7 +36,7 @@
       #{note,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{loginTime,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.UmsAdmin" >
+  <insert id="insertSelective" parameterType="com.mr.entity.UmsAdmin" >
     insert into ums_admin
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -103,7 +103,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.UmsAdmin" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.UmsAdmin" >
     update ums_admin
     <set >
       <if test="username != null" >
@@ -136,7 +136,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.UmsAdmin" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.UmsAdmin" >
     update ums_admin
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

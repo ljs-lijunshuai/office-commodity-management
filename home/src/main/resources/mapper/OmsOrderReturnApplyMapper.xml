@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.OmsOrderReturnApplyMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.OmsOrderReturnApply" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.OmsOrderReturnApply" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="order_id" property="orderId" jdbcType="BIGINT" />
     <result column="company_address_id" property="companyAddressId" jdbcType="BIGINT" />
@@ -46,7 +46,7 @@
     delete from oms_order_return_apply
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.OmsOrderReturnApply" >
+  <insert id="insert" parameterType="com.mr.entity.OmsOrderReturnApply" >
     insert into oms_order_return_apply (id, order_id, company_address_id, 
       product_id, order_sn, create_time, 
       member_username, return_amount, return_name, 
@@ -68,7 +68,7 @@
       #{receiveMan,jdbcType=VARCHAR}, #{receiveTime,jdbcType=TIMESTAMP}, #{receiveNote,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.OmsOrderReturnApply" >
+  <insert id="insertSelective" parameterType="com.mr.entity.OmsOrderReturnApply" >
     insert into oms_order_return_apply
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -237,7 +237,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.OmsOrderReturnApply" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.OmsOrderReturnApply" >
     update oms_order_return_apply
     <set >
       <if test="orderId != null" >
@@ -321,7 +321,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.OmsOrderReturnApply" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.OmsOrderReturnApply" >
     update oms_order_return_apply
     set order_id = #{orderId,jdbcType=BIGINT},
       company_address_id = #{companyAddressId,jdbcType=BIGINT},

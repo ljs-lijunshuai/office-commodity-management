@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.PmsProductPategoryMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.PmsProductPategory" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.PmsProductPategory" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="parent_id" property="parentId" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -14,7 +14,7 @@
     <result column="icon" property="icon" jdbcType="VARCHAR" />
     <result column="keywords" property="keywords" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.mr.pojo.PmsProductPategory" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.mr.entity.PmsProductPategory" extends="BaseResultMap" >
     <result column="description" property="description" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -36,7 +36,7 @@
     delete from pms_product_category
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.PmsProductPategory" >
+  <insert id="insert" parameterType="com.mr.entity.PmsProductPategory" >
     insert into pms_product_category (id, parent_id, name, 
       level, product_count, product_unit, 
       nav_status, show_status, sort, 
@@ -48,7 +48,7 @@
       #{icon,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR}, #{description,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.PmsProductPategory" >
+  <insert id="insertSelective" parameterType="com.mr.entity.PmsProductPategory" >
     insert into pms_product_category
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.PmsProductPategory" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.PmsProductPategory" >
     update pms_product_category
     <set >
       <if test="parentId != null" >
@@ -166,7 +166,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mr.pojo.PmsProductPategory" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mr.entity.PmsProductPategory" >
     update pms_product_category
     set parent_id = #{parentId,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},
@@ -181,7 +181,7 @@
       description = #{description,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.PmsProductPategory" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.PmsProductPategory" >
     update pms_product_category
     set parent_id = #{parentId,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},

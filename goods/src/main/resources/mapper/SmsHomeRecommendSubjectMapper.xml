@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.SmsHomeRecommendSubjectMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.SmsHomeRecommendSubject" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.SmsHomeRecommendSubject" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="subject_id" property="subjectId" jdbcType="BIGINT" />
     <result column="subject_name" property="subjectName" jdbcType="VARCHAR" />
@@ -21,13 +21,13 @@
     delete from sms_home_recommend_subject
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.SmsHomeRecommendSubject" >
+  <insert id="insert" parameterType="com.mr.entity.SmsHomeRecommendSubject" >
     insert into sms_home_recommend_subject (id, subject_id, subject_name, 
       recommend_status, sort)
     values (#{id,jdbcType=BIGINT}, #{subjectId,jdbcType=BIGINT}, #{subjectName,jdbcType=VARCHAR}, 
       #{recommendStatus,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.SmsHomeRecommendSubject" >
+  <insert id="insertSelective" parameterType="com.mr.entity.SmsHomeRecommendSubject" >
     insert into sms_home_recommend_subject
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.SmsHomeRecommendSubject" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.SmsHomeRecommendSubject" >
     update sms_home_recommend_subject
     <set >
       <if test="subjectId != null" >
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.SmsHomeRecommendSubject" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.SmsHomeRecommendSubject" >
     update sms_home_recommend_subject
     set subject_id = #{subjectId,jdbcType=BIGINT},
       subject_name = #{subjectName,jdbcType=VARCHAR},

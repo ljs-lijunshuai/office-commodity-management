@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.PmsCommentReplayMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.PmsCommentReplay" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.PmsCommentReplay" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="comment_id" property="commentId" jdbcType="BIGINT" />
     <result column="member_nick_name" property="memberNickName" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from pms_comment_replay
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.PmsCommentReplay" >
+  <insert id="insert" parameterType="com.mr.entity.PmsCommentReplay" >
     insert into pms_comment_replay (id, comment_id, member_nick_name, 
       member_icon, content, create_time, 
       type)
@@ -31,7 +31,7 @@
       #{memberIcon,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{type,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.PmsCommentReplay" >
+  <insert id="insertSelective" parameterType="com.mr.entity.PmsCommentReplay" >
     insert into pms_comment_replay
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.PmsCommentReplay" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.PmsCommentReplay" >
     update pms_comment_replay
     <set >
       <if test="commentId != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.PmsCommentReplay" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.PmsCommentReplay" >
     update pms_comment_replay
     set comment_id = #{commentId,jdbcType=BIGINT},
       member_nick_name = #{memberNickName,jdbcType=VARCHAR},

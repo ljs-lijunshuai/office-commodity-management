@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.SmsFlashPromotionMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.SmsFlashPromotion" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.SmsFlashPromotion" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="start_date" property="startDate" jdbcType="DATE" />
@@ -22,7 +22,7 @@
     delete from sms_flash_promotion
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.SmsFlashPromotion" >
+  <insert id="insert" parameterType="com.mr.entity.SmsFlashPromotion" >
     insert into sms_flash_promotion (id, title, start_date, 
       end_date, status, create_time
       )
@@ -30,7 +30,7 @@
       #{endDate,jdbcType=DATE}, #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.SmsFlashPromotion" >
+  <insert id="insertSelective" parameterType="com.mr.entity.SmsFlashPromotion" >
     insert into sms_flash_promotion
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.SmsFlashPromotion" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.SmsFlashPromotion" >
     update sms_flash_promotion
     <set >
       <if test="title != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.SmsFlashPromotion" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.SmsFlashPromotion" >
     update sms_flash_promotion
     set title = #{title,jdbcType=VARCHAR},
       start_date = #{startDate,jdbcType=DATE},

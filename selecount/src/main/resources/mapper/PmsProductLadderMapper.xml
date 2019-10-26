@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.PmsProductLadderMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.PmsProductLadder" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.PmsProductLadder" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="product_id" property="productId" jdbcType="BIGINT" />
     <result column="count" property="count" jdbcType="INTEGER" />
@@ -21,13 +21,13 @@
     delete from pms_product_ladder
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.PmsProductLadder" >
+  <insert id="insert" parameterType="com.mr.entity.PmsProductLadder" >
     insert into pms_product_ladder (id, product_id, count, 
       discount, price)
     values (#{id,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}, #{count,jdbcType=INTEGER}, 
       #{discount,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.PmsProductLadder" >
+  <insert id="insertSelective" parameterType="com.mr.entity.PmsProductLadder" >
     insert into pms_product_ladder
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.PmsProductLadder" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.PmsProductLadder" >
     update pms_product_ladder
     <set >
       <if test="productId != null" >
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.PmsProductLadder" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.PmsProductLadder" >
     update pms_product_ladder
     set product_id = #{productId,jdbcType=BIGINT},
       count = #{count,jdbcType=INTEGER},

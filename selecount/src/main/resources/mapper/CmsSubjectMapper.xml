@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.CmsSubjectMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.CmsSubject" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.CmsSubject" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="category_id" property="categoryId" jdbcType="BIGINT" />
     <result column="title" property="title" jdbcType="VARCHAR" />
@@ -18,7 +18,7 @@
     <result column="forward_count" property="forwardCount" jdbcType="INTEGER" />
     <result column="category_name" property="categoryName" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.mr.pojo.CmsSubject" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.mr.entity.CmsSubject" extends="BaseResultMap" >
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -40,7 +40,7 @@
     delete from cms_subject
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.CmsSubject" >
+  <insert id="insert" parameterType="com.mr.entity.CmsSubject" >
     insert into cms_subject (id, category_id, title, 
       pic, product_count, recommend_status, 
       create_time, collect_count, read_count, 
@@ -54,7 +54,7 @@
       #{showStatus,jdbcType=INTEGER}, #{forwardCount,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR}, 
       #{content,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.CmsSubject" >
+  <insert id="insertSelective" parameterType="com.mr.entity.CmsSubject" >
     insert into cms_subject
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -157,7 +157,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.CmsSubject" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.CmsSubject" >
     update cms_subject
     <set >
       <if test="categoryId != null" >
@@ -208,7 +208,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mr.pojo.CmsSubject" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mr.entity.CmsSubject" >
     update cms_subject
     set category_id = #{categoryId,jdbcType=BIGINT},
       title = #{title,jdbcType=VARCHAR},
@@ -227,7 +227,7 @@
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.CmsSubject" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.CmsSubject" >
     update cms_subject
     set category_id = #{categoryId,jdbcType=BIGINT},
       title = #{title,jdbcType=VARCHAR},

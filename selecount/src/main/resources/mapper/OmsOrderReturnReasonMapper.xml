@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.OmsOrderReturnReasonMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.OmsOrderReturnReason" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.OmsOrderReturnReason" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="sort" property="sort" jdbcType="INTEGER" />
@@ -21,13 +21,13 @@
     delete from oms_order_return_reason
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.OmsOrderReturnReason" >
+  <insert id="insert" parameterType="com.mr.entity.OmsOrderReturnReason" >
     insert into oms_order_return_reason (id, name, sort, 
       status, create_time)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
       #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.OmsOrderReturnReason" >
+  <insert id="insertSelective" parameterType="com.mr.entity.OmsOrderReturnReason" >
     insert into oms_order_return_reason
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.OmsOrderReturnReason" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.OmsOrderReturnReason" >
     update oms_order_return_reason
     <set >
       <if test="name != null" >
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.OmsOrderReturnReason" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.OmsOrderReturnReason" >
     update oms_order_return_reason
     set name = #{name,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=INTEGER},

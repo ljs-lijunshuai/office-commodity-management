@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.PmsSkuStockMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.PmsSkuStock" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.PmsSkuStock" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="product_id" property="productId" jdbcType="BIGINT" />
     <result column="sku_code" property="skuCode" jdbcType="VARCHAR" />
@@ -30,7 +30,7 @@
     delete from pms_sku_stock
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.PmsSkuStock" >
+  <insert id="insert" parameterType="com.mr.entity.PmsSkuStock" >
     insert into pms_sku_stock (id, product_id, sku_code, 
       price, stock, low_stock, 
       sp1, sp2, sp3, pic, 
@@ -42,7 +42,7 @@
       #{sale,jdbcType=INTEGER}, #{promotionPrice,jdbcType=DECIMAL}, #{lockStock,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.PmsSkuStock" >
+  <insert id="insertSelective" parameterType="com.mr.entity.PmsSkuStock" >
     insert into pms_sku_stock
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.PmsSkuStock" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.PmsSkuStock" >
     update pms_sku_stock
     <set >
       <if test="productId != null" >
@@ -169,7 +169,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.PmsSkuStock" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.PmsSkuStock" >
     update pms_sku_stock
     set product_id = #{productId,jdbcType=BIGINT},
       sku_code = #{skuCode,jdbcType=VARCHAR},

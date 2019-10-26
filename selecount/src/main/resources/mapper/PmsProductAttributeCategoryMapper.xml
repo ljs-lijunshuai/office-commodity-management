@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.PmsProductAttributeCategoryMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.PmsProductAttributeCategory" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.PmsProductAttributeCategory" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="attribute_count" property="attributeCount" jdbcType="INTEGER" />
@@ -20,13 +20,13 @@
     delete from pms_product_attribute_category
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.PmsProductAttributeCategory" >
+  <insert id="insert" parameterType="com.mr.entity.PmsProductAttributeCategory" >
     insert into pms_product_attribute_category (id, name, attribute_count, 
       param_count)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{attributeCount,jdbcType=INTEGER}, 
       #{paramCount,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.PmsProductAttributeCategory" >
+  <insert id="insertSelective" parameterType="com.mr.entity.PmsProductAttributeCategory" >
     insert into pms_product_attribute_category
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.PmsProductAttributeCategory" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.PmsProductAttributeCategory" >
     update pms_product_attribute_category
     <set >
       <if test="name != null" >
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.PmsProductAttributeCategory" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.PmsProductAttributeCategory" >
     update pms_product_attribute_category
     set name = #{name,jdbcType=VARCHAR},
       attribute_count = #{attributeCount,jdbcType=INTEGER},

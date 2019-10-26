@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.SmsHomeAdvertiseMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.SmsHomeAdvertise" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.SmsHomeAdvertise" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="INTEGER" />
@@ -29,7 +29,7 @@
     delete from sms_home_advertise
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.SmsHomeAdvertise" >
+  <insert id="insert" parameterType="com.mr.entity.SmsHomeAdvertise" >
     insert into sms_home_advertise (id, name, type, 
       pic, start_time, end_time, 
       status, click_count, order_count, 
@@ -39,7 +39,7 @@
       #{status,jdbcType=INTEGER}, #{clickCount,jdbcType=INTEGER}, #{orderCount,jdbcType=INTEGER}, 
       #{url,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.SmsHomeAdvertise" >
+  <insert id="insertSelective" parameterType="com.mr.entity.SmsHomeAdvertise" >
     insert into sms_home_advertise
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -118,7 +118,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.SmsHomeAdvertise" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.SmsHomeAdvertise" >
     update sms_home_advertise
     <set >
       <if test="name != null" >
@@ -157,7 +157,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.SmsHomeAdvertise" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.SmsHomeAdvertise" >
     update sms_home_advertise
     set name = #{name,jdbcType=VARCHAR},
       type = #{type,jdbcType=INTEGER},

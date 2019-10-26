@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.SmsFlashPromotionLogMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.SmsFlashPromotionLog" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.SmsFlashPromotionLog" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="member_id" property="memberId" jdbcType="INTEGER" />
     <result column="product_id" property="productId" jdbcType="BIGINT" />
@@ -23,7 +23,7 @@
     delete from sms_flash_promotion_log
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.SmsFlashPromotionLog" >
+  <insert id="insert" parameterType="com.mr.entity.SmsFlashPromotionLog" >
     insert into sms_flash_promotion_log (id, member_id, product_id, 
       member_phone, product_name, subscribe_time, 
       send_time)
@@ -31,7 +31,7 @@
       #{memberPhone,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, #{subscribeTime,jdbcType=TIMESTAMP}, 
       #{sendTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.SmsFlashPromotionLog" >
+  <insert id="insertSelective" parameterType="com.mr.entity.SmsFlashPromotionLog" >
     insert into sms_flash_promotion_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.SmsFlashPromotionLog" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.SmsFlashPromotionLog" >
     update sms_flash_promotion_log
     <set >
       <if test="memberId != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.SmsFlashPromotionLog" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.SmsFlashPromotionLog" >
     update sms_flash_promotion_log
     set member_id = #{memberId,jdbcType=INTEGER},
       product_id = #{productId,jdbcType=BIGINT},

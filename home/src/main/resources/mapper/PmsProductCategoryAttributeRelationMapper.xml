@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.PmsProductCategoryAttributeRelationMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.PmsProductCategoryAttributeRelation" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.PmsProductCategoryAttributeRelation" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="product_category_id" property="productCategoryId" jdbcType="BIGINT" />
     <result column="product_attribute_id" property="productAttributeId" jdbcType="BIGINT" />
@@ -19,13 +19,13 @@
     delete from pms_product_category_attribute_relation
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.PmsProductCategoryAttributeRelation" >
+  <insert id="insert" parameterType="com.mr.entity.PmsProductCategoryAttributeRelation" >
     insert into pms_product_category_attribute_relation (id, product_category_id, product_attribute_id
       )
     values (#{id,jdbcType=BIGINT}, #{productCategoryId,jdbcType=BIGINT}, #{productAttributeId,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.PmsProductCategoryAttributeRelation" >
+  <insert id="insertSelective" parameterType="com.mr.entity.PmsProductCategoryAttributeRelation" >
     insert into pms_product_category_attribute_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.PmsProductCategoryAttributeRelation" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.PmsProductCategoryAttributeRelation" >
     update pms_product_category_attribute_relation
     <set >
       <if test="productCategoryId != null" >
@@ -62,7 +62,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.PmsProductCategoryAttributeRelation" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.PmsProductCategoryAttributeRelation" >
     update pms_product_category_attribute_relation
     set product_category_id = #{productCategoryId,jdbcType=BIGINT},
       product_attribute_id = #{productAttributeId,jdbcType=BIGINT}

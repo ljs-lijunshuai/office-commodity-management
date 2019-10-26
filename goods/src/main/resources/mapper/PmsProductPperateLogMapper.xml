@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.PmsProductPperateLogMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.PmsProductPperateLog" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.PmsProductPperateLog" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="product_id" property="productId" jdbcType="BIGINT" />
     <result column="price_old" property="priceOld" jdbcType="DECIMAL" />
@@ -29,7 +29,7 @@
     delete from pms_product_operate_log
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.PmsProductPperateLog" >
+  <insert id="insert" parameterType="com.mr.entity.PmsProductPperateLog" >
     insert into pms_product_operate_log (id, product_id, price_old, 
       price_new, sale_price_old, sale_price_new, 
       gift_point_old, gift_point_new, use_point_limit_old, 
@@ -41,7 +41,7 @@
       #{usePointLimitNew,jdbcType=INTEGER}, #{operateMan,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.PmsProductPperateLog" >
+  <insert id="insertSelective" parameterType="com.mr.entity.PmsProductPperateLog" >
     insert into pms_product_operate_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -120,7 +120,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.PmsProductPperateLog" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.PmsProductPperateLog" >
     update pms_product_operate_log
     <set >
       <if test="productId != null" >
@@ -159,7 +159,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.PmsProductPperateLog" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.PmsProductPperateLog" >
     update pms_product_operate_log
     set product_id = #{productId,jdbcType=BIGINT},
       price_old = #{priceOld,jdbcType=DECIMAL},

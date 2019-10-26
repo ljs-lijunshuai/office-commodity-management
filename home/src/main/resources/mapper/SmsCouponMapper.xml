@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.SmsCouponMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.SmsCoupon" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.SmsCoupon" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -35,7 +35,7 @@
     delete from sms_coupon
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.SmsCoupon" >
+  <insert id="insert" parameterType="com.mr.entity.SmsCoupon" >
     insert into sms_coupon (id, type, name, 
       platform, count, amount, 
       per_limit, min_point, start_time, 
@@ -51,7 +51,7 @@
       #{enableTime,jdbcType=TIMESTAMP}, #{code,jdbcType=VARCHAR}, #{memberLevel,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.SmsCoupon" >
+  <insert id="insertSelective" parameterType="com.mr.entity.SmsCoupon" >
     insert into sms_coupon
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -166,7 +166,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.SmsCoupon" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.SmsCoupon" >
     update sms_coupon
     <set >
       <if test="type != null" >
@@ -223,7 +223,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.SmsCoupon" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.SmsCoupon" >
     update sms_coupon
     set type = #{type,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mr.mapper.UmsPermissionMapper" >
-  <resultMap id="BaseResultMap" type="com.mr.pojo.UmsPermission" >
+  <resultMap id="BaseResultMap" type="com.mr.entity.UmsPermission" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="pid" property="pid" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -26,7 +26,7 @@
     delete from ums_permission
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mr.pojo.UmsPermission" >
+  <insert id="insert" parameterType="com.mr.entity.UmsPermission" >
     insert into ums_permission (id, pid, name, 
       value, icon, type, 
       uri, status, create_time, 
@@ -36,7 +36,7 @@
       #{uri,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{sort,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mr.pojo.UmsPermission" >
+  <insert id="insertSelective" parameterType="com.mr.entity.UmsPermission" >
     insert into ums_permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -103,7 +103,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mr.pojo.UmsPermission" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mr.entity.UmsPermission" >
     update ums_permission
     <set >
       <if test="pid != null" >
@@ -136,7 +136,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mr.pojo.UmsPermission" >
+  <update id="updateByPrimaryKey" parameterType="com.mr.entity.UmsPermission" >
     update ums_permission
     set pid = #{pid,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},
