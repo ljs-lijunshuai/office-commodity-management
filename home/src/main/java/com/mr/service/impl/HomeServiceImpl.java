@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class HomeServiceImpl implements IHomeService {
 
-    @Autowired
-    private UmsAdminLoginLogMapper umsAdminLoginLogMapper;
+    /*@Autowired
+    private UmsAdminLoginLogMapper umsAdminLoginLogMapper;*/
 }
