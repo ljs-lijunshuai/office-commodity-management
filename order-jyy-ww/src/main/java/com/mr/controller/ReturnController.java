@@ -1,11 +1,17 @@
 package com.mr.controller;
 
+import com.mr.mapper.IReturnMapper;
+import com.mr.service.IReturnService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/test")
 public class ReturnController {
+
+    @Autowired
+    private IReturnService iReturnService;
     
     /**
      *@描述 
@@ -21,5 +27,10 @@ public class ReturnController {
         return "sss";
     }
 
+    @RequestMapping("/list")
+    public void lsit(){
 
+    }
 }
+
+
