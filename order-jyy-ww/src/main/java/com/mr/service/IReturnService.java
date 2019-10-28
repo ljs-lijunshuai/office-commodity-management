@@ -1,7 +1,13 @@
 package com.mr.service;
 
-import org.springframework.stereotype.Service;
+import com.mr.entity.OmsOrderReturnApply;
 
-@Service
+import java.util.List;
+
 public interface IReturnService {
+
+
+    void find();
+
+    int deleteReturnOrder(String ids);
 }

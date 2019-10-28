@@ -6,6 +6,9 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 spring:
+  elasticsearch:
+    rest:
+      uris: http://localhost:9200
   application:
     name: manageOrder
   datasource:
@@ -38,7 +41,7 @@ spring:
 #        default-requeue-rejected: true
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
-  type-aliases-package: com.mr.easy.entity
+  type-aliases-package: com.mr.entity
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
