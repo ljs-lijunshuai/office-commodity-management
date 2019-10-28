@@ -3,15 +3,24 @@
 <mapper namespace="com.mr.mapper.IReturnMapper">
 
 
-    <select id="find" resultType="com.mr.entity.OmsOrderReturnApply" >
+    <select id="find" resultType="com.mr.entity.OmsOrderReturnApply" parameterType="com.mr.entity.OmsOrderReturnApply">
         select * from oms_order_return_apply
+        limit #{totalPage},#{pageSize}
     </select>
 
     <delete id="deleteReturnOrder" parameterType="java.lang.Object" >
-        delete oms_order_return_apply where id in
+        delete from oms_order_return_apply where id in
         <foreach collection="array" item="s" separator="," open="(" close=")">
             #{s}
         </foreach>
     </delete>
+
+    <select id="findById" resultType="com.mr.entity.OmsOrderReturnApply" parameterType="com.mr.entity.OmsOrderReturnApply">
+        select * from oms_order_return_apply where id=#{id}
+    </select>
+
+    <select id="findTotalNum" resultType="int" parameterType="com.mr.entity.OmsOrderReturnApply" >
+        select count(*) from oms_order_return_apply
+    </select>
 
 </mapper>
