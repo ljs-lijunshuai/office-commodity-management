@@ -7,6 +7,7 @@ public class JyyData {
 
     private long code=200;
     private String message;
+
     private JyyPage data;
 
     public long getCode() {

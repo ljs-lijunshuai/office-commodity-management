@@ -10,6 +10,7 @@ public class JyyClassData {
     private String message;
     private OmsOrderReturnApply data;
 
+
     public long getCode() {
         return code;
     }

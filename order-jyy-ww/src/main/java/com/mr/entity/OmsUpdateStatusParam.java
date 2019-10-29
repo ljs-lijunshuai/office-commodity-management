@@ -29,6 +29,7 @@ public class OmsUpdateStatusParam {
         this.id = id;
     }
 
+
     public Long getCompanyAddressId() {
         return companyAddressId;
     }
