@@ -3,16 +3,11 @@ package com.mr.mapper;
 
 import com.mr.entity.OmsOrder;
 
+import java.util.List;
+
 public interface OmsOrderMapper {
-    int deleteByPrimaryKey(Long id);
 
-    int insert(OmsOrder record);
+    int findTotalNumx(OmsOrder omsOrder);
 
-    int insertSelective(OmsOrder record);
-
-    OmsOrder selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(OmsOrder record);
-
-    int updateByPrimaryKey(OmsOrder record);
+    List<OmsOrder> list(OmsOrder omsOrder);
 }
