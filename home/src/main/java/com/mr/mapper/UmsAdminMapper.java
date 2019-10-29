@@ -15,4 +15,6 @@ public interface UmsAdminMapper {
     int updateByPrimaryKeySelective(UmsAdmin record);
 
     int updateByPrimaryKey(UmsAdmin record);
+
+    UmsAdmin findUserName(UmsAdmin umsAdmin);
 }

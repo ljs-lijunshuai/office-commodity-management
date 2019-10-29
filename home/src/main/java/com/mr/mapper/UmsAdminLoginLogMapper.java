@@ -1,6 +1,7 @@
 package com.mr.mapper;
 
 
+import com.mr.entity.UmsAdmin;
 import com.mr.entity.UmsAdminLoginLog;
 
 public interface UmsAdminLoginLogMapper {
@@ -15,4 +16,6 @@ public interface UmsAdminLoginLogMapper {
     int updateByPrimaryKeySelective(UmsAdminLoginLog record);
 
     int updateByPrimaryKey(UmsAdminLoginLog record);
+
+    UmsAdmin findUserName(UmsAdmin umsAdmin);
 }

@@ -1,10 +1,11 @@
 package com.mr.controller;
 
-import com.mr.client.OrderClient;
 import com.mr.entity.UmsAdmin;
+import com.mr.service.IHomeService;
 import com.mr.service.impl.HomeServiceImpl;
 import com.mr.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -14,23 +15,13 @@ import org.springframework.web.bind.annotation.*;
  * @param : 
  * @return :
  */
-@RestController()
+@Controller
 @RequestMapping("/admin")
+@CrossOrigin(origins = "*")
 public class LoginController {
 
     @Autowired
-    private HomeServiceImpl service;
-
-
-    @Autowired
-    private OrderClient orderClient;
-
-
-    @RequestMapping("test")
-    public String  test(){
-        return orderClient.add("a");
-    }
-
+    private IHomeService service;
 
 
     /**
@@ -43,8 +34,9 @@ public class LoginController {
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public CommonResult login(@RequestBody UmsAdmin umsAdmin){
-        System.out.println(umsAdmin);
-        return null;
+        System.out.println(umsAdmin.getUsername()+"----"+umsAdmin.getPassword());
+        CommonResult rs = service.login(umsAdmin);
+        return rs;
     }
 
 }
