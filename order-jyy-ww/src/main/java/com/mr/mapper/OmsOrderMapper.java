@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface OmsOrderMapper {
 
-    int findTotalNumx(OmsOrder omsOrder);
+    int findTotalNum(OmsOrder omsOrder);
 
     List<OmsOrder> list(OmsOrder omsOrder);
 }

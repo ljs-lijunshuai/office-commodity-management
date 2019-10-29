@@ -23,7 +23,7 @@ public class OmsOrderServiceImpl implements IOmsOrderService {
         int i = (omsOrder.getPageNum() - 1) * omsOrder.getPageSize();
         omsOrder.setTotalPage(i);
         //分页查询总条数
-        int totalNum= orderMapper.findTotalNumx(omsOrder);
+        int totalNum= orderMapper.findTotalNum(omsOrder);
         //计算开始标
         /*j.calculate();*/
         //查询当前页
