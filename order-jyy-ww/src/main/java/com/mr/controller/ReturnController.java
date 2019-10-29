@@ -1,12 +1,15 @@
 package com.mr.controller;
 
 import com.mr.entity.OmsOrderReturnApply;
+import com.mr.entity.OmsUpdateStatusParam;
 import com.mr.service.IReturnService;
 import com.mr.util.CommonResult;
+import com.mr.util.JyyClassData;
 import com.mr.util.JyyData;
 import com.mr.util.JyyPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,6 +38,14 @@ public class ReturnController {
         return "sss";
     }
 
+    /**
+     *@描述 分页查询
+     *@参数
+     *@返回值
+     *@创建人 jyy
+     *@创建时间 2019/10/29
+     *@修改人和其它信息
+     */
     @ResponseBody
     @RequestMapping("/returnOrderList")
     public JyyData returnOrderList(String keyword,OmsOrderReturnApply oora){
@@ -59,10 +70,39 @@ public class ReturnController {
         return CommonResult.success(co);
     }
 
+    /**
+     *@描述 根据ID查询一条数据
+     *@参数
+     *@返回值
+     *@创建人 jyy
+     *@创建时间 2019/10/29
+     *@修改人和其它信息
+     */
     @ResponseBody
-    @PostMapping("/findById")
-    public OmsOrderReturnApply findById(OmsOrderReturnApply oora){
-        return iReturnService.findById(oora);
+    @GetMapping("/findById")
+    public JyyClassData findById(OmsOrderReturnApply oora){
+        OmsOrderReturnApply oo = iReturnService.findById(oora);
+        JyyClassData jcd = new JyyClassData();
+        jcd.setData(oo);
+        return jcd;
+    }
+
+
+    /**
+     *@描述 退货订单的操作也就是修改
+     *@参数
+     *@返回值
+     *@创建人 jyy
+     *@创建时间 2019/10/29
+     *@修改人和其它信息
+     */
+    @ResponseBody
+    @RequestMapping("/updateReturnOrder")
+    public CommonResult<Object> updateReturnOrder(OmsOrderReturnApply oora, OmsUpdateStatusParam data){
+
+        System.out.println(data);
+
+        return null;
     }
 
 

@@ -1,13 +1,14 @@
 package com.mr.util;
 
+
 import com.mr.entity.OmsOrderReturnApply;
 import org.apache.poi.ss.formula.functions.T;
 
-public class JyyData {
+public class JyyClassData {
 
     private long code=200;
     private String message;
-    private JyyPage data;
+    private OmsOrderReturnApply data;
 
     public long getCode() {
         return code;
@@ -25,13 +26,11 @@ public class JyyData {
         this.message = message;
     }
 
-    public JyyPage getData() {
+    public OmsOrderReturnApply getData() {
         return data;
     }
 
-    public void setData(JyyPage data) {
+    public void setData(OmsOrderReturnApply data) {
         this.data = data;
     }
-
-
 }

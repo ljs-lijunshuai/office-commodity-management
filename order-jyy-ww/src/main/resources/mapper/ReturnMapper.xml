@@ -7,6 +7,9 @@
         select * from oms_order_return_apply
         limit #{totalPage},#{pageSize}
     </select>
+    <select id="">
+
+    </select>
 
     <delete id="deleteReturnOrder" parameterType="java.lang.Object" >
         delete from oms_order_return_apply where id in
