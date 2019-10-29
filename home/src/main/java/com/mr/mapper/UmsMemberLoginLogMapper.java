@@ -2,7 +2,9 @@ package com.mr.mapper;
 
 
 import com.mr.entity.UmsMemberLoginLog;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface UmsMemberLoginLogMapper {
     int deleteByPrimaryKey(Long id);
 
