@@ -1,6 +1,7 @@
 package com.mr.service.impl;
 
 import com.mr.entity.OmsOrder;
+import com.mr.entity.OmsOrderDetail;
 import com.mr.mapper.OmsOrderMapper;
 import com.mr.service.IOmsOrderService;
 import com.mr.util.WwData;
@@ -23,7 +24,7 @@ public class OmsOrderServiceImpl implements IOmsOrderService {
         int i = (omsOrder.getPageNum() - 1) * omsOrder.getPageSize();
         omsOrder.setTotalPage(i);
         //分页查询总条数
-        int totalNum= orderMapper.findTotalNumx(omsOrder);
+        int totalNum= orderMapper.findTotalNum(omsOrder);
         //计算开始标
         /*j.calculate();*/
         //查询当前页
@@ -35,4 +36,11 @@ public class OmsOrderServiceImpl implements IOmsOrderService {
         ww.setData(w);
         return ww;
     }
+
+    @Override
+    public OmsOrderDetail detail(OmsOrderDetail ood) {
+        return orderMapper.detail(ood);
+    }
+
+
 }
