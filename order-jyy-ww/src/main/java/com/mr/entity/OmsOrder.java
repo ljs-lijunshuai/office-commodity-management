@@ -1,9 +1,11 @@
 package com.mr.entity;
 
+import com.mr.util.WwPage;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class OmsOrder {
+public class OmsOrder extends WwPage {
     private Long id;
 
     private Long memberId;

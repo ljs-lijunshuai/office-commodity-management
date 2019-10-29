@@ -1,9 +1,11 @@
 package com.mr.entity;
 
+import com.mr.util.JyyPage;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class OmsOrderReturnApply {
+public class OmsOrderReturnApply extends JyyPage {
     private Long id;
 
     private Long orderId;
