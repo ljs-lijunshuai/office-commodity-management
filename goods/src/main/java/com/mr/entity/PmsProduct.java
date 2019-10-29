@@ -383,4 +383,7 @@ public class PmsProduct {
     public void setProductCategoryName(String productCategoryName) {
         this.productCategoryName = productCategoryName == null ? null : productCategoryName.trim();
     }
+
+    public void findGoodsList() {
+    }
 }

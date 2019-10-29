@@ -1,9 +1,12 @@
 package com.mr.controller;
 
+import com.mr.entity.PmsAlbum;
+import com.mr.entity.PmsProduct;
 import com.mr.service.IGoodsService;
 import com.mr.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @return :
  */
 @Controller
-@RequestMapping("goods")
+@RequestMapping("product")
 public class GoodsController {
 
     /*注入service*/
@@ -30,11 +33,10 @@ public class GoodsController {
      * @return :com.mr.util.CommonResult
      */
     @ResponseBody
-    @RequestMapping("")
-    public CommonResult findGoodsList(){
-        CommonResult cr = goodsService.findGoodsList();
+    @RequestMapping("list")
+    public CommonResult findGoodsList(@RequestBody PmsAlbum pmsAlbum){
+        CommonResult cr = goodsService.findGoodsList(pmsAlbum);
         return cr;
     }
-
 
 }
