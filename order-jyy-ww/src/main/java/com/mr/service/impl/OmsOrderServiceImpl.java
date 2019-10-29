@@ -1,6 +1,7 @@
 package com.mr.service.impl;
 
 import com.mr.entity.OmsOrder;
+import com.mr.entity.OmsOrderDetail;
 import com.mr.mapper.OmsOrderMapper;
 import com.mr.service.IOmsOrderService;
 import com.mr.util.WwData;
@@ -35,4 +36,11 @@ public class OmsOrderServiceImpl implements IOmsOrderService {
         ww.setData(w);
         return ww;
     }
+
+    @Override
+    public OmsOrderDetail detail(OmsOrderDetail ood) {
+        return orderMapper.detail(ood);
+    }
+
+
 }

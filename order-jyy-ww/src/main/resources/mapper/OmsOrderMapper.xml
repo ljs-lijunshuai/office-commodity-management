@@ -12,4 +12,10 @@
         select count(*) from oms_order
     </select>
 
+    <select id="detail" resultType="com.mr.entity.OmsOrderDetail" parameterType="com.mr.entity.OmsOrderDetail">
+        SELECT * FROM oms_cart_item oci
+	    LEFT JOIN oms_order oo ON oci.`member_id`=oo.`member_id`
+	    LEFT JOIN oms_order_item ooi ON oci.`product_id`=ooi.`product_id`
+	    LEFT JOIN oms_order_operate_history oooh ON ooi.`order_id`=oooh.`order_id`
+    </select>
 </mapper>

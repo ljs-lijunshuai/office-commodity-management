@@ -6,6 +6,8 @@ public class WwData {
     private String message;
     private WwPage data;
 
+
+
     public long getCode() {
         return code;
     }

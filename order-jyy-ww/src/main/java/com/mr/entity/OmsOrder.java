@@ -2,10 +2,11 @@ package com.mr.entity;
 
 import com.mr.util.WwPage;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class OmsOrder extends WwPage {
+public class OmsOrder extends WwPage implements Serializable {
     private Long id;
 
     private Long memberId;
