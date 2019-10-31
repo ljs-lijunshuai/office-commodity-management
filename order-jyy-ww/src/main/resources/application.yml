@@ -6,9 +6,6 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 spring:
-  elasticsearch:
-    rest:
-      uris: http://localhost:9200
   application:
     name: manageOrder
   datasource:

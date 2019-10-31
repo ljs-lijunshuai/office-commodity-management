@@ -4,18 +4,29 @@
 
 
     <select id="list" resultType="com.mr.entity.OmsOrder" parameterType="com.mr.entity.OmsOrder">
-        select * from oms_order
+        select * from oms_order where delete_status=0
         limit #{totalPage},#{pageSize}
     </select>
 
     <select id="findTotalNum" resultType="int" parameterType="com.mr.entity.OmsOrder" >
-        select count(*) from oms_order
+        select count(*) from oms_order where delete_status=0
     </select>
 
-    <select id="detail" resultType="com.mr.entity.OmsOrderDetail" parameterType="com.mr.entity.OmsOrderDetail">
+    <select id="detail" resultType="int" parameterType="com.mr.entity.OmsOrderDetail">
         SELECT * FROM oms_cart_item oci
 	    LEFT JOIN oms_order oo ON oci.`member_id`=oo.`member_id`
 	    LEFT JOIN oms_order_item ooi ON oci.`product_id`=ooi.`product_id`
 	    LEFT JOIN oms_order_operate_history oooh ON ooi.`order_id`=oooh.`order_id`
     </select>
+
+<!--    <update id="delete" parameterType="com.mr.entity.OmsOrder">-->
+<!--        update oms_order set delete_status=1 where id=#{id}-->
+<!--    </update>-->
+
+    <update id="delete" parameterType="com.mr.entity.OmsOrder">
+            UPDATE oms_order
+            <set>
+                delete_status=1
+            </set> WHERE id=#{id}
+    </update>
 </mapper>

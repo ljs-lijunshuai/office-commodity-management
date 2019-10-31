@@ -5,6 +5,7 @@ import com.mr.entity.OmsOrderDetail;
 import com.mr.mapper.OmsOrderMapper;
 import com.mr.service.IOmsOrderService;
 import com.mr.util.WwData;
+import com.mr.util.WwDataOod;
 import com.mr.util.WwPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,9 +38,16 @@ public class OmsOrderServiceImpl implements IOmsOrderService {
         return ww;
     }
 
+
     @Override
-    public OmsOrderDetail detail(OmsOrderDetail ood) {
-        return orderMapper.detail(ood);
+    public int delete(Long id) {
+     //   String[] arr = ids.split(",");
+        return orderMapper.delete(id);
+    }
+
+    @Override
+    public OmsOrderDetail detail(Long id) {
+        return orderMapper.detail(id);
     }
 
 

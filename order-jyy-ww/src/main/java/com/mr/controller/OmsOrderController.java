@@ -4,7 +4,9 @@ import com.mr.entity.OmsOrder;
 import com.mr.entity.OmsOrderDetail;
 import com.mr.entity.OmsOrderOperateHistory;
 import com.mr.service.IOmsOrderService;
+import com.mr.util.CommonResult;
 import com.mr.util.WwData;
+import com.mr.util.WwDataOod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -59,11 +61,20 @@ public class OmsOrderController {
      * @Author: ww
      * @Date: 2019/10/29 20:25 
     **/
-    @GetMapping("/{id}")
+    @RequestMapping("/detail")
     @ResponseBody
-    public OmsOrderDetail detail(OmsOrderDetail ood){
-        return orderService.detail(ood);
+    public CommonResult<OmsOrderDetail> detail(Long id) {
+        OmsOrderDetail orderDetailResult = orderService.detail(id);
+        return CommonResult.success(orderDetailResult);
     }
 
+    @ResponseBody
+    @PostMapping("/delete")
+    public CommonResult delete(@RequestParam("ids") Long ids){
+        Integer co =null;
+        int i = orderService.delete(ids);
+        if(i>0) co=200;
+        return CommonResult.success(co);
+    }
 
 }
