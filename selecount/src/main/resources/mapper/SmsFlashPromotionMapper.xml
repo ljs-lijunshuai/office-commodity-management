@@ -103,4 +103,20 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <!--查询总条数-->
+  <select id="queryTotal" parameterType="com.mr.entity.SmsFlashPromotion" resultType="java.lang.Integer">
+        select count(*) from sms_flash_promotion
+  </select>
+
+  <!--查询全部-->
+  <select id="queryPromotionList" resultType="com.mr.entity.SmsFlashPromotion" parameterType="com.mr.entity.SmsFlashPromotion">
+        select * from sms_flash_promotion limit #{startPos},#{rows}
+  </select>
+
+  <!--秒杀表删除-->
+  <delete id="deletePromotionInfo" parameterType="java.lang.Integer">
+        delete from sms_flash_promotion where id=#{id}
+  </delete>
+
 </mapper>

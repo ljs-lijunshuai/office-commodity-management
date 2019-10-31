@@ -38,7 +38,6 @@ spring:
         default-requeue-rejected: true
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
-  type-aliases-package: com.mr.easy.entity
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
