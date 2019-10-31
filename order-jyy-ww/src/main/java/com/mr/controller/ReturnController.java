@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/returnOrder")
@@ -48,8 +49,10 @@ public class ReturnController {
      */
     @ResponseBody
     @RequestMapping("/returnOrderList")
-    public JyyData returnOrderList(String keyword,OmsOrderReturnApply oora){
-        JyyData li = iReturnService.returnOrderList(keyword,oora);
+    public JyyData returnOrderList(Map<String,Object> oora){
+        System.out.println("+++++++++++++++++++++++++++++++");
+        System.out.println(oora.get("oora"));
+        JyyData li = iReturnService.returnOrderList((OmsOrderReturnApply) oora.get("oora"));
         return li;
     }
 

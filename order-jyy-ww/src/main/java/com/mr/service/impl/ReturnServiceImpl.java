@@ -49,7 +49,7 @@ public class ReturnServiceImpl implements IReturnService {
     }
 
     @Override
-    public JyyData returnOrderList(String keyword, OmsOrderReturnApply oora) {
+    public JyyData returnOrderList(OmsOrderReturnApply oora) {
         JyyPage j = new JyyPage();
         JyyData jd = new JyyData();
         j.setPageNum(oora.getPageNum());

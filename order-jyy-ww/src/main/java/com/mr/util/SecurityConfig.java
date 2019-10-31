@@ -1,17 +1,11 @@
 package com.mr.util;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-
-import java.util.List;
 
 
 /**
@@ -19,7 +13,7 @@ import java.util.List;
  * Created by macro on 2018/4/26.
  */
 @Configuration
-public class SecurityConfig{
+public class SecurityConfig {
 
     /**
      * 允许跨域调用的过滤器

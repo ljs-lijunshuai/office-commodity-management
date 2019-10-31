@@ -15,6 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Description : 登录  主页
  * @author: 李军帅
@@ -61,8 +64,11 @@ public class LoginController{
 
     @ResponseBody
     @RequestMapping("returnOrderList")
-    public JyyData returnOrderList(String keyword, OmsOrderReturnApply oora) {
-        return orderClient.returnOrderList(keyword,oora);
+    public JyyData returnOrderList(OmsOrderReturnApply oora) {
+        System.out.println(oora.getPageNum());
+        Map<String,Object> param = new HashMap<>();
+        param.put("oora",oora);
+        return orderClient.returnOrderList(param);
     }
 
     @ResponseBody

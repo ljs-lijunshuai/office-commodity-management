@@ -19,7 +19,7 @@ public interface IReturnService {
 
     OmsOrderReturnApply findById(OmsOrderReturnApply oora);
 
-    JyyData returnOrderList(String keyword, OmsOrderReturnApply oora);
+    JyyData returnOrderList(OmsOrderReturnApply oora);
 
     int updateReturnOrder(OmsUpdateStatusParam ousp);
 

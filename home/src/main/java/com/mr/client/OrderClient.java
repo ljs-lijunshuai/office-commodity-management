@@ -9,42 +9,45 @@ import com.mr.util.JyyData;
 import com.mr.util.ut.OorrClassData;
 import com.mr.util.ut.OorrData;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Map;
 
 @FeignClient("manageOrder")
 public interface OrderClient {
 
     @RequestMapping("/returnOrder/deleteReturnOrder")
-    CommonResult<Object> deleteReturnOrder(@RequestParam("ids")String ids);
+    CommonResult<Object> deleteReturnOrder(String ids);
 
     @RequestMapping("/returnOrder/findById")
-    JyyClassData findById(@RequestParam("oora")OmsOrderReturnApply oora);
+    JyyClassData findById(@PathVariable OmsOrderReturnApply oora);
 
     @RequestMapping("/returnOrder/returnOrderList")
-    JyyData returnOrderList(@RequestParam("keyword,oora")String keyword, OmsOrderReturnApply oora);
+    JyyData returnOrderList(@RequestParam(value="oora") Map<String ,Object> oora);
 
     @RequestMapping("/returnOrder/updateReturnOrder")
-    CommonResult<Object> updateReturnOrder(@RequestParam("ousp")OmsUpdateStatusParam ousp);
+    CommonResult<Object> updateReturnOrder(@PathVariable OmsUpdateStatusParam ousp);
 
     /********退货原因******8*/
     @RequestMapping("/returnOrder/findCauseOrder")
-    OorrData findCauseOrder(@RequestParam("oorr")OmsOrderReturnReason oorr);
+    OorrData findCauseOrder(@PathVariable OmsOrderReturnReason oorr);
 
     @RequestMapping("/returnOrder/deleteCauseOrder")
-    CommonResult deleteCauseOrder(@RequestParam("ids")String ids);
+    CommonResult deleteCauseOrder(@RequestParam("ids") String ids);
 
     @RequestMapping("/returnOrder/addCauseOrder")
-    CommonResult<Object> addCauseOrder(@RequestParam("oorr")OmsOrderReturnReason oorr);
+    CommonResult<Object> addCauseOrder(@PathVariable OmsOrderReturnReason oorr);
 
     @RequestMapping("/returnOrder/updateInitiateMode")
-    CommonResult<Object> updateInitiateMode(@RequestParam("oorr")OmsOrderReturnReason oorr);
+    CommonResult<Object> updateInitiateMode(@PathVariable OmsOrderReturnReason oorr);
 
     @RequestMapping("/returnOrder/findByCauseOrderId")
-    OorrClassData findByCauseOrderId(@RequestParam("id")Long id);
+    OorrClassData findByCauseOrderId(@RequestParam("id") Long id);
 
     @RequestMapping("/returnOrder/updateCauseOrder")
-    CommonResult<Object> updateCauseOrder(@RequestParam("oorr")OmsOrderReturnReason oorr);
+    CommonResult<Object> updateCauseOrder(@PathVariable OmsOrderReturnReason oorr);
 
 
 }
