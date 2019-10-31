@@ -1,9 +1,13 @@
 package com.mr.controller;
 
+import com.mr.entity.UmsAdmin;
+import com.mr.service.IHomeService;
 import com.mr.service.impl.HomeServiceImpl;
 import com.mr.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
 /**
  * @Description : 登录  主页
  * @author: 李军帅
@@ -11,11 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @param : 
  * @return :
  */
-@RestController("home")
+@Controller
+@RequestMapping("/admin")
+@CrossOrigin(origins = "*")
 public class LoginController {
 
     @Autowired
-    private HomeServiceImpl service;
+    private IHomeService service;
+
 
     /**
      * @Description : login登录
@@ -24,8 +31,12 @@ public class LoginController {
      * @param :[]
      * @return :com.mr.util.CommonResult
      */
-    public CommonResult login(){
-        return null;
+    @ResponseBody
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public CommonResult login(@RequestBody UmsAdmin umsAdmin){
+        System.out.println(umsAdmin.getUsername()+"----"+umsAdmin.getPassword());
+        CommonResult rs = service.login(umsAdmin);
+        return rs;
     }
 
 }

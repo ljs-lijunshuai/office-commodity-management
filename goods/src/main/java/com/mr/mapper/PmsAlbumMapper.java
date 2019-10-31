@@ -2,6 +2,9 @@ package com.mr.mapper;
 
 
 import com.mr.entity.PmsAlbum;
+import com.mr.entity.PmsProduct;
+
+import java.util.List;
 
 public interface PmsAlbumMapper {
     int deleteByPrimaryKey(Long id);
@@ -15,4 +18,6 @@ public interface PmsAlbumMapper {
     int updateByPrimaryKeySelective(PmsAlbum record);
 
     int updateByPrimaryKey(PmsAlbum record);
+
+    List<PmsProduct> findGoodsList(PmsAlbum pmsProduct);
 }

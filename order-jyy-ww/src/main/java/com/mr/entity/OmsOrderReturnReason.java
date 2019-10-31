@@ -1,8 +1,10 @@
 package com.mr.entity;
 
+import com.mr.util.ut.OorrPage;
+
 import java.util.Date;
 
-public class OmsOrderReturnReason {
+public class OmsOrderReturnReason extends OorrPage {
     private Long id;
 
     private String name;

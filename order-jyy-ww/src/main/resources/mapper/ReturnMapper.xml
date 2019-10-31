@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mr.mapper.IReturnMapper">
+
+    <!--总条数-->
+    <select id="findTotalNum" resultType="int" parameterType="com.mr.entity.OmsOrderReturnApply" >
+        select count(*) from oms_order_return_apply
+        <where>
+            1=1
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="status!=null">
+                and status=#{status}
+            </if>
+            <if test="handleMan!=null">
+                and handle_man=#{handleMan}
+            </if>
+            <if test="createTime!=null">
+                and data(create_time,'yyyy-MM-dd')=data(#{createTime},'yyyy-MM-dd')
+            </if>
+            <if test="handleTime!=null">
+                and data(handle_time,'yyyy-MM-dd')=data(#{handleTime},'yyyy-MM-dd')
+            </if>
+        </where>
+    </select>
+    <!--分页查询-->
+    <select id="find" resultType="com.mr.entity.OmsOrderReturnApply" parameterType="com.mr.entity.OmsOrderReturnApply">
+        select * from oms_order_return_apply
+        <where>
+                1=1
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="status!=null">
+                and status=#{status}
+            </if>
+            <if test="handleMan!=null">
+               and handle_man=#{handleMan}
+            </if>
+            <if test="createTime!=null">
+               and data(create_time,'yyyy-MM-dd')=data(#{createTime},'yyyy-MM-dd')
+            </if>
+            <if test="handleTime!=null">
+               and data(handle_time,'yyyy-MM-dd')=data(#{handleTime},'yyyy-MM-dd')
+            </if>
+        </where>
+        limit #{totalPage},#{pageSize}
+    </select>
+
+    <!--批量删除-->
+    <delete id="deleteReturnOrder" parameterType="java.lang.Object" >
+        delete from oms_order_return_apply where id in
+        <foreach collection="array" item="s" separator="," open="(" close=")">
+            #{s}
+        </foreach>
+    </delete>
+    <!--根据id查询一条-->
+    <select id="findById" resultType="com.mr.entity.OmsOrderReturnApply" parameterType="com.mr.entity.OmsOrderReturnApply">
+        select * from oms_order_return_apply where id=#{id}
+    </select>
+    <!--修改退货订单的状态-->
+    <update id="updateReturnOrder" parameterType="com.mr.entity.OmsUpdateStatusParam">
+        update oms_order_return_apply
+            <set>
+                receive_time=now(),
+                <if test="companyAddressId!=null">
+                    company_address_id=#{companyAddressId},
+                </if>
+                <if test="returnAmount!=null">
+                    return_amount=#{returnAmount},
+                </if>
+                <if test="handleNote!=null">
+                    handle_note=#{handleNote},
+                </if>
+                <if test="handleMan!=null">
+                    handle_man=#{handleMan},
+                </if>
+                <if test="receiveNote!=null">
+                    receive_note=#{receiveNote},
+                </if>
+                <if test="receiveMan!=null">
+                    receive_man=#{receiveMan},
+                </if>
+                <if test="status!=null">
+                    status=#{status},
+                </if>
+            </set>
+            where id=#{id}
+    </update>
+
+
+    <!--*********************************退货原因接口**********************************************8-->
+    <!--查询总条数-->
+    <select id="findCauseTotalNum" resultType="int" parameterType="com.mr.entity.OmsOrderReturnReason">
+        select count(*) from oms_order_return_reason
+    </select>
+    <!--查询开始下标数据-->
+    <select id="findCause" resultType="com.mr.entity.OmsOrderReturnReason" parameterType="com.mr.entity.OmsOrderReturnReason">
+        select * from oms_order_return_reason
+        limit #{totalPage},#{pageSize}
+    </select>
+    <!--删除及批量-->
+    <delete id="deleteCauseOrder" parameterType="java.lang.Object">
+        delete from oms_order_return_reason where id in
+        <foreach collection="array" item="s" separator="," open="(" close=")">
+            #{s}
+        </foreach>
+    </delete>
+    <!--添加-->
+    <insert id="addCauseOrder" parameterType="com.mr.entity.OmsOrderReturnReason">
+        insert into oms_order_return_reason values(#{id},#{name},#{sort},#{status},now())
+    </insert>
+    <!--启用否-->
+    <update id="updateInitiateMode" parameterType="com.mr.entity.OmsOrderReturnReason">
+        update oms_order_return_reason set status=#{status} where id=#{id}
+    </update>
+    <!--查询一条-->
+    <select id="findByCauseOrderId" parameterType="long" resultType="com.mr.entity.OmsOrderReturnReason">
+        select * from oms_order_return_reason where id=#{id}
+    </select>
+
+    <update id="updateCauseOrder" parameterType="com.mr.entity.OmsOrderReturnReason" >
+        update oms_order_return_reason
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="sort!=null">
+                sort=#{sort},
+            </if>
+            <if test="status!=null">
+                status=#{status}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+</mapper>

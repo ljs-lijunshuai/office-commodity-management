@@ -1,18 +1,21 @@
+
 package com.mr.mapper;
 
 
 import com.mr.entity.OmsOrder;
+import com.mr.entity.OmsOrderDetail;
+import com.mr.util.WwDataOod;
+
+import java.util.List;
 
 public interface OmsOrderMapper {
-    int deleteByPrimaryKey(Long id);
 
-    int insert(OmsOrder record);
+    int findTotalNum(OmsOrder omsOrder);
 
-    int insertSelective(OmsOrder record);
+    List<OmsOrder> list(OmsOrder omsOrder);
 
-    OmsOrder selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKeySelective(OmsOrder record);
+    int delete(Long id);
 
-    int updateByPrimaryKey(OmsOrder record);
+    OmsOrderDetail detail(Long id);
 }
