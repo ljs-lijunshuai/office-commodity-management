@@ -19,7 +19,7 @@
     where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="findGoodsList" resultType="pmsAlbum" parameterType="pmsAlbum">
-        select  * from
+        select  * from  pms_product
   </select>
 
 
