@@ -1,6 +1,9 @@
 package com.mr.entity;
 
+import com.mr.util.PageUtilssss;
+
 import java.util.Date;
+import java.util.List;
 
 public class SmsFlashPromotionSession {
     private Long id;
@@ -62,4 +65,17 @@ public class SmsFlashPromotionSession {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+    @Override
+    public String toString() {
+        return "SmsFlashPromotionSession{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", status=" + status +
+                ", createTime=" + createTime +
+                '}';
+    }
+
 }

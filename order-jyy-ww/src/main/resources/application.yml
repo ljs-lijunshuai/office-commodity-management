@@ -6,13 +6,10 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 spring:
-  elasticsearch:
-    rest:
-      uris: http://localhost:9200
   application:
     name: manageOrder
   datasource:
-    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&serverTimezone=UTC&allowMultiQueries=true
+    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&serverTimezone=UTC&allowMultiQueries=true&characterEncoding=utf-8
     username: root
     password: root
   redis:

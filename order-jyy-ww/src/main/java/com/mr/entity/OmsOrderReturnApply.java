@@ -1,6 +1,8 @@
 package com.mr.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mr.util.JyyPage;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -15,7 +17,8 @@ public class OmsOrderReturnApply extends JyyPage {
     private Long productId;
 
     private String orderSn;
-
+/*    @JsonFormat(pattern = "yyyy-MM-dd HH mm ss")*/
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createTime;
 
     private String memberUsername;
@@ -27,7 +30,8 @@ public class OmsOrderReturnApply extends JyyPage {
     private String returnPhone;
 
     private Integer status;
-
+/*    @JsonFormat(pattern = "yyyy-MM-dd HH mm ss")*/
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date handleTime;
 
     private String productPic;

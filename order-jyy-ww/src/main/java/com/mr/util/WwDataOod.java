@@ -1,6 +1,6 @@
 package com.mr.util;
 
-public class WwData {
+public class WwDataOod {
 
     private long code=200;
     private String message;

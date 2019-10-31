@@ -1,9 +1,11 @@
 package com.mr.service.impl;
 
 import com.mr.entity.OmsOrder;
+import com.mr.entity.OmsOrderDetail;
 import com.mr.mapper.OmsOrderMapper;
 import com.mr.service.IOmsOrderService;
 import com.mr.util.WwData;
+import com.mr.util.WwDataOod;
 import com.mr.util.WwPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +25,7 @@ public class OmsOrderServiceImpl implements IOmsOrderService {
         int i = (omsOrder.getPageNum() - 1) * omsOrder.getPageSize();
         omsOrder.setTotalPage(i);
         //分页查询总条数
-        int totalNum= orderMapper.findTotalNumx(omsOrder);
+        int totalNum= orderMapper.findTotalNum(omsOrder);
         //计算开始标
         /*j.calculate();*/
         //查询当前页
@@ -35,4 +37,18 @@ public class OmsOrderServiceImpl implements IOmsOrderService {
         ww.setData(w);
         return ww;
     }
+
+
+    @Override
+    public int delete(Long id) {
+     //   String[] arr = ids.split(",");
+        return orderMapper.delete(id);
+    }
+
+    @Override
+    public OmsOrderDetail detail(Long id) {
+        return orderMapper.detail(id);
+    }
+
+
 }

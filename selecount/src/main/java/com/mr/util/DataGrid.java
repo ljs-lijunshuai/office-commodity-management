@@ -1,43 +1,58 @@
 package com.mr.util;
 
+import com.mr.entity.SmsFlashPromotion;
+import org.apache.poi.ss.formula.functions.T;
+
 import java.util.List;
 
 public class DataGrid {
 
-    private Integer code;
-    private Integer count;
-    private List<?> data;
-    private String msg;
+    private Integer total;//总条数
 
-    public Integer getCode() {
-        return code;
+    private Integer totalPage;//第几页
+    private Integer pageSize;//一页几条
+    private List list;
+
+    public Integer getTotal() {
+        return total;
     }
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
-    public Integer getCount() {
-        return count;
+    public Integer getTotalPage() {
+        return totalPage;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setTotalPage(Integer totalPage) {
+        this.totalPage = totalPage;
     }
 
-    public List<?> getData() {
-        return data;
+    public Integer getPageSize() {
+        return pageSize;
     }
 
-    public void setData(List<?> data) {
-        this.data = data;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public String getMsg() {
-        return msg;
+    public List getList() {
+        return list;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setList(List list) {
+        this.list = list;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Datagrid{");
+        sb.append("total=").append(total);
+        sb.append(", totalPage=").append(totalPage);
+        sb.append(", pageSize=").append(pageSize);
+        sb.append(", list=").append(list);
+        sb.append('}');
+        return sb.toString();
     }
 }

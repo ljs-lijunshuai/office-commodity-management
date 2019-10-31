@@ -1,12 +1,12 @@
-package com.mr.util;
+package com.mr.util.ut;
 
-public class WwData {
+
+public class OorrData {
 
     private long code=200;
     private String message;
-    private WwPage data;
 
-
+    private OorrPage data;
 
     public long getCode() {
         return code;
@@ -24,11 +24,13 @@ public class WwData {
         this.message = message;
     }
 
-    public WwPage getData() {
+    public OorrPage getData() {
         return data;
     }
 
-    public void setData(WwPage data) {
+    public void setData(OorrPage data) {
         this.data = data;
     }
+
+
 }

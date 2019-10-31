@@ -1,11 +1,13 @@
-package com.mr.util;
+package com.mr.util.ut;
 
-public class WwData {
+
+import com.mr.entity.OmsOrderReturnReason;
+
+public class OorrClassData {
 
     private long code=200;
     private String message;
-    private WwPage data;
-
+    private OmsOrderReturnReason data;
 
 
     public long getCode() {
@@ -24,11 +26,11 @@ public class WwData {
         this.message = message;
     }
 
-    public WwPage getData() {
+    public OmsOrderReturnReason getData() {
         return data;
     }
 
-    public void setData(WwPage data) {
+    public void setData(OmsOrderReturnReason data) {
         this.data = data;
     }
 }

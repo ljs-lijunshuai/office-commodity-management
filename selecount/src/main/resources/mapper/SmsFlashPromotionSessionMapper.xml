@@ -103,4 +103,22 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <!--查询限时购场次表信息-->
+  <select id="queryProSessionList" parameterType="com.mr.entity.SmsFlashPromotionSession" resultType="com.mr.entity.SmsFlashPromotionSession">
+        select * from sms_flash_promotion_session
+  </select>
+
+  <!--删除数据-->
+  <delete id="deleteProSessionInfo" parameterType="java.lang.Integer">
+         delete from sms_flash_promotion_session where id = #{id}
+  </delete>
+
+  <!--添加数据-->
+  <insert id="addProSessionInfo" parameterType="com.mr.entity.SmsFlashPromotionSession">
+        insert into sms_flash_promotion_session(id,name,start_time,end_time,status,create_time) values(#{id}, #{name}, #{startTime},
+      #{endTime}, #{status}, #{createTime})
+  </insert>
+
+
 </mapper>

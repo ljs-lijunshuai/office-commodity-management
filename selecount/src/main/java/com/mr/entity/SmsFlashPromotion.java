@@ -1,8 +1,10 @@
 package com.mr.entity;
 
+import com.mr.util.PageUtilssss;
+
 import java.util.Date;
 
-public class SmsFlashPromotion {
+public class SmsFlashPromotion extends PageUtilssss {
     private Long id;
 
     private String title;
@@ -19,6 +21,18 @@ public class SmsFlashPromotion {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return "SmsFlashPromotion{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", status=" + status +
+                ", createTime=" + createTime +
+                '}';
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -28,7 +42,7 @@ public class SmsFlashPromotion {
     }
 
     public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
+        this.title = title;
     }
 
     public Date getStartDate() {
