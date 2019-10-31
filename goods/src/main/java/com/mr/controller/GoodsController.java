@@ -39,4 +39,60 @@ public class GoodsController {
         return cr;
     }
 
+
+    /**
+     * @Description : addGoods 添加一条商品信息
+     * @author: 李军帅
+     * @date :2019/10/31
+     * @param :[pmsAlbum]
+     * @return :com.mr.util.CommonResult
+     */
+    @ResponseBody
+    @RequestMapping("create")
+    public CommonResult addGoods(@RequestBody PmsAlbum pmsAlbum){
+        return null;
+    }
+
+    /**
+     * @Description : updateGoods  更新商品
+     * @author: 李军帅
+     * @date :2019/10/31
+     * @param :[pmsAlbum]
+     * @return :com.mr.util.CommonResult
+     */
+    @ResponseBody
+    @RequestMapping("update")
+    public CommonResult updateGoods(@RequestBody PmsAlbum pmsAlbum){
+        return null;
+    }
+
+
+    /**
+     * @Description : updateInfoGoods  根据ID查询提条商品信息
+     * @author: 李军帅
+     * @date :2019/10/31
+     * @param :[pmsAlbum]
+     * @return :com.mr.util.CommonResult
+     */
+    @ResponseBody
+    @RequestMapping("updateInfo")
+    public CommonResult updateInfoGoods(@RequestBody PmsAlbum pmsAlbum){
+        return null;
+    }
+
+
+    /**
+     * @Description : simpleList 根据商品名称或货号模糊查询
+     * @author: 李军帅
+     * @date :2019/10/31
+     * @param :[pmsAlbum]
+     * @return :com.mr.util.CommonResult
+     */
+    @ResponseBody
+    @RequestMapping("simpleList")
+    public CommonResult simpleList(@RequestBody PmsAlbum pmsAlbum){
+        return null;
+    }
+
+
 }
