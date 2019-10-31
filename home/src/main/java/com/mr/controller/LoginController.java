@@ -24,10 +24,14 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("/admin")
-public class LoginController implements OrderClient {
+public class LoginController {
 
     @Autowired
     private IHomeService service;
+
+    @Autowired
+    private OrderClient orderClient;
+
     /**
      * @Description : login登录
      * @author: 李军帅
@@ -45,71 +49,61 @@ public class LoginController implements OrderClient {
 
     @ResponseBody
     @RequestMapping("deleteReturnOrder")
-    @Override
     public CommonResult<Object> deleteReturnOrder(String ids) {
-        return null;
+        return orderClient.deleteReturnOrder(ids);
     }
 
     @ResponseBody
     @RequestMapping("findById")
-    @Override
     public JyyClassData findById(OmsOrderReturnApply oora) {
-        return null;
+        return orderClient.findById(oora);
     }
 
     @ResponseBody
     @RequestMapping("returnOrderList")
-    @Override
     public JyyData returnOrderList(String keyword, OmsOrderReturnApply oora) {
-        return null;
+        return orderClient.returnOrderList(keyword,oora);
     }
 
     @ResponseBody
     @RequestMapping("updateReturnOrder")
-    @Override
     public CommonResult<Object> updateReturnOrder(OmsUpdateStatusParam ousp) {
-        return null;
+        return orderClient.updateReturnOrder(ousp);
     }
 
     @ResponseBody
     @RequestMapping("findCauseOrder")
-    @Override
     public OorrData findCauseOrder(OmsOrderReturnReason oorr) {
-        return null;
+        return orderClient.findCauseOrder(oorr);
     }
 
     @ResponseBody
     @RequestMapping("deleteCauseOrder")
-    @Override
     public CommonResult deleteCauseOrder(String ids) {
-        return null;
+        return orderClient.deleteCauseOrder(ids);
     }
 
     @ResponseBody
     @RequestMapping("addCauseOrder")
-    @Override
     public CommonResult<Object> addCauseOrder(OmsOrderReturnReason oorr) {
-        return null;
+        return orderClient.addCauseOrder(oorr);
     }
 
     @ResponseBody
     @RequestMapping("updateInitiateMode")
-    @Override
     public CommonResult<Object> updateInitiateMode(OmsOrderReturnReason oorr) {
-        return null;
+        return orderClient.updateInitiateMode(oorr);
     }
 
     @ResponseBody
     @RequestMapping("findByCauseOrderId")
-    @Override
     public OorrClassData findByCauseOrderId(Long id) {
-        return null;
+        return orderClient.findByCauseOrderId(id);
     }
 
     @ResponseBody
     @RequestMapping("updateCauseOrder")
-    @Override
     public CommonResult<Object> updateCauseOrder(OmsOrderReturnReason oorr) {
-        return null;
+        return orderClient.updateCauseOrder(oorr);
     }
 }
