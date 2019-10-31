@@ -63,12 +63,11 @@ public class LoginController{
     }
 
     @ResponseBody
-    @RequestMapping("returnOrderList")
-    public JyyData returnOrderList(OmsOrderReturnApply oora) {
-        System.out.println(oora.getPageNum());
-        Map<String,Object> param = new HashMap<>();
-        param.put("oora",oora);
-        return orderClient.returnOrderList(param);
+    @RequestMapping("/returnOrderList")
+    public JyyData returnOrderList(@RequestParam(value = "pageSize",required = false,defaultValue = "1") Integer pageSize ,@RequestParam(value = "pageNum",required = false) Integer pageNum) {
+        System.out.println(pageNum+"---------"+pageSize);
+        JyyData jyyData = orderClient.returnOrderList(pageSize,pageNum);
+        return jyyData;
     }
 
     @ResponseBody

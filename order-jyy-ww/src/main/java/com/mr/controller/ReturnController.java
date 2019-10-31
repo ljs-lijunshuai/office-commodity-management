@@ -23,7 +23,7 @@ public class ReturnController {
 
     @Autowired
     private IReturnService iReturnService;
-    
+
     /**
      *@描述:查询全部数据存入ES
      *@参数 
@@ -49,10 +49,8 @@ public class ReturnController {
      */
     @ResponseBody
     @RequestMapping("/returnOrderList")
-    public JyyData returnOrderList(Map<String,Object> oora){
-        System.out.println("+++++++++++++++++++++++++++++++");
-        System.out.println(oora.get("oora"));
-        JyyData li = iReturnService.returnOrderList((OmsOrderReturnApply) oora.get("oora"));
+    public JyyData returnOrderList(@RequestParam(value = "pageSize") Integer pageSize ,@RequestParam(value = "pageNum") Integer pageNum){
+        JyyData li = iReturnService.returnOrderList(pageSize,pageNum);
         return li;
     }
 
