@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("/admin")
-public class LoginController {
+public class LoginController{
 
     @Autowired
     private IHomeService service;

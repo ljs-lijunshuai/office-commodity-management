@@ -20,26 +20,26 @@ spring:
         max-wait: -1
         max-active: 200
         min-idle: 0
-  rabbitmq:
-    host: localhost
-    username: guest
-    password: guest
-    port: 5672
-    listener:
-      direct:
-        retry:
-          enabled: true
-          max-attempts: 5
-          initial-interval: 5000
-          max-interval: 6000
-          multiplier: 20
-      simple:
-        default-requeue-rejected: true
-jwt:
-  tokenHeader: Authorization #JWT存储的请求头
-  secret: mySecret #JWT加解密使用的密钥
-  expiration: 604800 #JWT的超期限时间(60*60*24)
-  tokenHead: Bearer  #JWT负载中拿到开头
+#  rabbitmq:
+#    host: localhost
+#    username: guest
+#    password: guest
+#    port: 5672
+#    listener:
+#      direct:
+#        retry:
+#          enabled: true
+#          max-attempts: 5
+#          initial-interval: 5000
+#          max-interval: 6000
+#          multiplier: 20
+#      simple:
+#        default-requeue-rejected: true
+#jwt:
+#  tokenHeader: Authorization #JWT存储的请求头
+#  secret: mySecret #JWT加解密使用的密钥
+#  expiration: 604800 #JWT的超期限时间(60*60*24)
+#  tokenHead: Bearer  #JWT负载中拿到开头
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
   type-aliases-package: com.mr.entity

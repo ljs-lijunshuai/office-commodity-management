@@ -17,5 +17,5 @@ public interface UmsAdminLoginLogMapper {
 
     int updateByPrimaryKey(UmsAdminLoginLog record);
 
-    UmsAdmin findUserName(UmsAdmin umsAdmin);
+    /*UmsAdmin findUserName(UmsAdmin umsAdmin);*/
 }
