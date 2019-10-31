@@ -26,6 +26,13 @@
     delete from ums_admin
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <!--根据用户名查询用户-->
+  <select id="findUserName" resultType="umsAdmin" parameterType="umsAdmin">
+    select * from ums_admin where username=#{username}
+  </select>
+
+
+
   <insert id="insert" parameterType="com.mr.entity.UmsAdmin" >
     insert into ums_admin (id, username, password, 
       icon, email, nick_name, 

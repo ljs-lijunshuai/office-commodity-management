@@ -102,4 +102,20 @@ public class UmsAdmin {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "UmsAdmin{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", icon='" + icon + '\'' +
+                ", email='" + email + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", note='" + note + '\'' +
+                ", createTime=" + createTime +
+                ", loginTime=" + loginTime +
+                ", status=" + status +
+                '}';
+    }
 }

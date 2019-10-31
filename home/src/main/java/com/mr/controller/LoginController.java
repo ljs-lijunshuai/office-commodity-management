@@ -17,13 +17,10 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("/admin")
-@CrossOrigin(origins = "*")
 public class LoginController {
 
     @Autowired
     private IHomeService service;
-
-
     /**
      * @Description : login登录
      * @author: 李军帅
@@ -36,7 +33,7 @@ public class LoginController {
     public CommonResult login(@RequestBody UmsAdmin umsAdmin){
         System.out.println(umsAdmin.getUsername()+"----"+umsAdmin.getPassword());
         CommonResult rs = service.login(umsAdmin);
-        return rs;
+        return null;
     }
 
 }
