@@ -1,6 +1,8 @@
 package com.mr.entity;
 
-public class SmsHomeRecommendSubject {
+import com.mr.page.JyyPage;
+
+public class SmsHomeRecommendSubject extends JyyPage {
     private Long id;
 
     private Long subjectId;

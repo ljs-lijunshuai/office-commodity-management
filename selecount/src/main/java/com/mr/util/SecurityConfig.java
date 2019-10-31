@@ -20,6 +20,7 @@ import java.util.List;
  */
 @Configuration
 public class SecurityConfig {
+
     /**
      * 允许跨域调用的过滤器
      */
@@ -36,6 +37,7 @@ public class SecurityConfig {
         bean.setOrder(0);
         return new CorsFilter(source);
     }
+
 
 
 }

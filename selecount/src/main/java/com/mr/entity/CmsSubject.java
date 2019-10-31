@@ -1,8 +1,11 @@
 package com.mr.entity;
 
+import com.mr.page.JyyPage;
+import com.mr.util.PageUtil;
+
 import java.util.Date;
 
-public class CmsSubject {
+public class CmsSubject extends JyyPage {
     private Long id;
 
     private Long categoryId;
@@ -161,5 +164,27 @@ public class CmsSubject {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "CmsSubject{" +
+                "id=" + id +
+                ", categoryId=" + categoryId +
+                ", title='" + title + '\'' +
+                ", pic='" + pic + '\'' +
+                ", productCount=" + productCount +
+                ", recommendStatus=" + recommendStatus +
+                ", createTime=" + createTime +
+                ", collectCount=" + collectCount +
+                ", readCount=" + readCount +
+                ", commentCount=" + commentCount +
+                ", albumPics='" + albumPics + '\'' +
+                ", description='" + description + '\'' +
+                ", showStatus=" + showStatus +
+                ", forwardCount=" + forwardCount +
+                ", categoryName='" + categoryName + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

@@ -22,14 +22,14 @@
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, category_id, title, pic, product_count, recommend_status, create_time, collect_count, 
+    id, category_id, title, pic, product_count, recommend_status, create_time, collect_count,
     read_count, comment_count, album_pics, description, show_status, forward_count, category_name
   </sql>
   <sql id="Blob_Column_List" >
     content
   </sql>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
-    select 
+    select
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
@@ -41,17 +41,17 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.mr.entity.CmsSubject" >
-    insert into cms_subject (id, category_id, title, 
-      pic, product_count, recommend_status, 
-      create_time, collect_count, read_count, 
-      comment_count, album_pics, description, 
-      show_status, forward_count, category_name, 
+    insert into cms_subject (id, category_id, title,
+      pic, product_count, recommend_status,
+      create_time, collect_count, read_count,
+      comment_count, album_pics, description,
+      show_status, forward_count, category_name,
       content)
-    values (#{id,jdbcType=BIGINT}, #{categoryId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, 
-      #{pic,jdbcType=VARCHAR}, #{productCount,jdbcType=INTEGER}, #{recommendStatus,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{collectCount,jdbcType=INTEGER}, #{readCount,jdbcType=INTEGER}, 
-      #{commentCount,jdbcType=INTEGER}, #{albumPics,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{showStatus,jdbcType=INTEGER}, #{forwardCount,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{categoryId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR},
+      #{pic,jdbcType=VARCHAR}, #{productCount,jdbcType=INTEGER}, #{recommendStatus,jdbcType=INTEGER},
+      #{createTime,jdbcType=TIMESTAMP}, #{collectCount,jdbcType=INTEGER}, #{readCount,jdbcType=INTEGER},
+      #{commentCount,jdbcType=INTEGER}, #{albumPics,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},
+      #{showStatus,jdbcType=INTEGER}, #{forwardCount,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR},
       #{content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.mr.entity.CmsSubject" >
@@ -244,5 +244,73 @@
       forward_count = #{forwardCount,jdbcType=INTEGER},
       category_name = #{categoryName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <!--查询主题的总条数-->
+  <!--<select id="querySubjectListTotalNum" parameterType="com.mr.entity.CmsSubject" resultType="int">
+    select count(*) from cms_subject
+    <where>
+      <if test="recommendStatus!=null">
+        and recommend_status=#{recommendStatus}
+      </if>
+      <if test="showStatus!=null">
+        and show_status=#{showStatus}
+      </if>
+    </where>
+  </select>-->
+
+  <!--查询主题分页数据-->
+  <!--<select id="querySubjectList" parameterType="com.mr.entity.CmsSubject" resultType="com.mr.entity.CmsSubject">
+    select * from cms_subject
+     &lt;!&ndash;<where>
+       <if test="recommendStatus!=null">
+          and recommend_status=#{recommendStatus}
+       </if>
+       <if test="title!=null and title!=''">
+         and title like CONCAT('%',#{title},'%')
+       </if>
+       and show_status=1
+     </where>&ndash;&gt;
+     limit #{startPos},#{rows}
+  </select>-->
+  <!--批量删除-->
+  <delete id="cmsSubject" parameterType="list">
+        delete from cms_subject where id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+  </delete>
+
+  <select id="queryList" resultType="com.mr.entity.SmsHomeRecommendSubject" parameterType="com.mr.entity.SmsHomeRecommendSubject">
+    select * from sms_home_recommend_subject
+    <where>
+      <if test="recommendStatus!=null">
+        and recommend_status=#{recommendStatus}
+      </if>
+      <if test="subjectName!=null and subjectName!=''">
+        and subject_name like CONCAT('%',#{subjectName},'%')
+      </if>
+    </where>
+     limit #{totalPage},#{pageSize}
+  </select>
+  <select id="queryTotalNum" resultType="int" parameterType="com.mr.entity.SmsHomeRecommendSubject">
+        select count(*) from sms_home_recommend_subject
+    <where>
+      <if test="recommendStatus!=null">
+        and recommend_status=#{recommendStatus}
+      </if>
+      <if test="subjectName!=null and subjectName!=''">
+        and subject_name like CONCAT('%',#{subjectName},'%')
+      </if>
+    </where>
+  </select>
+
+  <!--批量修改主题的推荐状态-->
+  <!--这种方法需要在数据库链接地址后面加上&allowMultiQueries=true-->
+  <update id="updateRecommendStatus" parameterType="map">
+    /*map传参 里面有ids和recommendStatus  循环foreach ids 修改推荐状态recommendStatus*/
+   <foreach collection="ids" separator=";" item="item">
+      update sms_home_recommend_subject set recommend_status=#{recommendStatus} where id = #{item}
+    </foreach>
   </update>
 </mapper>

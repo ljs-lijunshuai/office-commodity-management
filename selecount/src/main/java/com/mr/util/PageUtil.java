@@ -6,7 +6,7 @@ public class PageUtil {
     private Integer page = 1;
 
     // 每页条数
-    private Integer pageSize = 15;
+    private Integer rows = 5;
 
     // 开始条数
     private Integer startPos;
@@ -45,7 +45,7 @@ public class PageUtil {
      * 计算开始条数
      */
     public void calculate() {
-        this.startPos = (page - 1) * pageSize;
+        this.startPos = (page - 1) * rows;
     }
 
     public Integer getPage() {
@@ -57,12 +57,12 @@ public class PageUtil {
     }
 
 
-    public Integer getPageSize() {
-        return pageSize;
+    public Integer getRows() {
+        return rows;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    public void setRows(Integer rows) {
+        this.rows = rows;
     }
 
     public Integer getStartPos() {
