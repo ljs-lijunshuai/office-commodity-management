@@ -25,8 +25,13 @@ public class GoodsServiceImpl implements IGoodsService {
      */
     @Override
     public CommonResult findGoodsList(PmsAlbum pmsAlbum) {
+        CommonResult cr = new CommonResult();
         List<PmsProduct> list = pmsAlbumMapper.findGoodsList(pmsAlbum);
-
-        return null;
+        if (list!=null){
+            cr.setData(list);
+            cr.setCode(200);
+            cr.setMessage("执行成功");
+        }
+        return cr;
     }
 }
