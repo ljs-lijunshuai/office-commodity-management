@@ -16,35 +16,35 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface OrderClient {
 
     @RequestMapping("/returnOrder/deleteReturnOrder")
-    CommonResult<Object> deleteReturnOrder(@RequestParam("ids") String ids);
+    CommonResult<Object> deleteReturnOrder(String ids);
 
     @RequestMapping("/returnOrder/findById")
-    JyyClassData findById(@RequestParam("oora") OmsOrderReturnApply oora);
+    JyyClassData findById(@PathVariable OmsOrderReturnApply oora);
 
     @RequestMapping("/returnOrder/returnOrderList")
-    JyyData returnOrderList(@RequestParam("keyword") String keyword,@RequestParam("keyword") OmsOrderReturnApply oora);
+    JyyData returnOrderList(@RequestParam(value="oora") Map<String ,Object> oora);
 
     @RequestMapping("/returnOrder/updateReturnOrder")
-    CommonResult<Object> updateReturnOrder(@RequestParam("ousp") OmsUpdateStatusParam ousp);
+    CommonResult<Object> updateReturnOrder(@PathVariable OmsUpdateStatusParam ousp);
 
     /********退货原因******8*/
     @RequestMapping("/returnOrder/findCauseOrder")
-    OorrData findCauseOrder(@RequestParam("oorr") OmsOrderReturnReason oorr);
+    OorrData findCauseOrder(@PathVariable OmsOrderReturnReason oorr);
 
     @RequestMapping("/returnOrder/deleteCauseOrder")
     CommonResult deleteCauseOrder(@RequestParam("ids") String ids);
 
     @RequestMapping("/returnOrder/addCauseOrder")
-    CommonResult<Object> addCauseOrder(@RequestParam("oorr") OmsOrderReturnReason oorr);
+    CommonResult<Object> addCauseOrder(@PathVariable OmsOrderReturnReason oorr);
 
     @RequestMapping("/returnOrder/updateInitiateMode")
-    CommonResult<Object> updateInitiateMode(@RequestParam("oorr") OmsOrderReturnReason oorr);
+    CommonResult<Object> updateInitiateMode(@PathVariable OmsOrderReturnReason oorr);
 
     @RequestMapping("/returnOrder/findByCauseOrderId")
     OorrClassData findByCauseOrderId(@RequestParam("id") Long id);
 
     @RequestMapping("/returnOrder/updateCauseOrder")
-    CommonResult<Object> updateCauseOrder(@RequestParam("oorr") OmsOrderReturnReason oorr);
+    CommonResult<Object> updateCauseOrder(@PathVariable OmsOrderReturnReason oorr);
 
 
 }

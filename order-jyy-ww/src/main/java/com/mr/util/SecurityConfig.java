@@ -7,15 +7,13 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import java.util.List;
-
 
 /**
  * SpringSecurity的配置
  * Created by macro on 2018/4/26.
  */
 @Configuration
-public class SecurityConfig{
+public class SecurityConfig {
 
     /**
      * 允许跨域调用的过滤器
