@@ -12,11 +12,7 @@ import com.mr.util.JyyData;
 import com.mr.util.ut.OorrClassData;
 import com.mr.util.ut.OorrData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @Description : 登录  主页
@@ -25,7 +21,7 @@ import java.util.Map;
  * @param : 
  * @return :
  */
-@Controller
+@RestController
 @RequestMapping("/admin")
 public class LoginController{
 
@@ -62,6 +58,7 @@ public class LoginController{
         return orderClient.findById(oora);
     }
 
+    /*退货订单查询*/
     @ResponseBody
     @RequestMapping("/returnOrderList")
     public JyyData returnOrderList(@RequestParam(value = "pageSize",required = false,defaultValue = "1") Integer pageSize ,@RequestParam(value = "pageNum",required = false) Integer pageNum) {
@@ -70,9 +67,12 @@ public class LoginController{
         return jyyData;
     }
 
+
+    /*修改*/
     @ResponseBody
     @RequestMapping("updateReturnOrder")
     public CommonResult<Object> updateReturnOrder(OmsUpdateStatusParam ousp) {
+
         return orderClient.updateReturnOrder(ousp);
     }
 
