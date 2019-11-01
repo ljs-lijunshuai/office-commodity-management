@@ -34,7 +34,8 @@ public class ReturnController {
     @ResponseBody
     @RequestMapping("/test")
     public String test(){
-        iReturnService.find();
+        /*iReturnService.find();*/
+        System.out.println("+++++++++++++++++++++++++++==================++=====****%%%%%%%%%%%%");
         return "sss";
     }
 
@@ -47,8 +48,9 @@ public class ReturnController {
      *@修改人和其它信息
      */
     @ResponseBody
-    @RequestMapping("/returnOrderList")
-    public JyyData returnOrderList(String keyword,OmsOrderReturnApply oora){
+    @RequestMapping(value = "/returnOrderList",method = RequestMethod.POST)
+    public JyyData returnOrderList(@RequestBody OmsOrderReturnApply oora){
+        String keyword=null;
         JyyData li = iReturnService.returnOrderList(keyword,oora);
         return li;
     }

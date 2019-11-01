@@ -11,9 +11,12 @@ import com.mr.util.JyyClassData;
 import com.mr.util.JyyData;
 import com.mr.util.ut.OorrClassData;
 import com.mr.util.ut.OorrData;
+import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.zip.DeflaterOutputStream;
 
 /**
  * @Description : 登录  主页
@@ -28,82 +31,39 @@ public class LoginController {
 
     @Autowired
     private IHomeService service;
-
     @Autowired
     private OrderClient orderClient;
 
+
     /**
      * @Description : login登录
-     * @author: 李军帅
-     * @date :2019/10/25
-     * @param :[]
-     * @return :com.mr.util.CommonResult
-     */
-    @ResponseBody
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public CommonResult login(@RequestBody UmsAdmin umsAdmin){
+        * @author: 李军帅
+        * @date :2019/10/25
+        * @param :[]
+        * @return :com.mr.util.CommonResult
+        */
+@ResponseBody
+@RequestMapping(value = "/login", method = RequestMethod.POST)
+public CommonResult login(@RequestBody UmsAdmin umsAdmin){
         System.out.println(umsAdmin.getUsername()+"----"+umsAdmin.getPassword());
         CommonResult rs = service.login(umsAdmin);
         return null;
-    }
+        }
 
-    @ResponseBody
-    @RequestMapping("deleteReturnOrder")
-    public CommonResult<Object> deleteReturnOrder(String ids) {
-        return orderClient.deleteReturnOrder(ids);
-    }
+        @ResponseBody
+        @RequestMapping("/test")
+        public String test(){
+            String test = orderClient.test();
+            return test;
+        }
 
-    @ResponseBody
-    @RequestMapping("findById")
-    public JyyClassData findById(OmsOrderReturnApply oora) {
-        return orderClient.findById(oora);
-    }
 
-    @ResponseBody
-    @RequestMapping("returnOrderList")
-    public JyyData returnOrderList(String keyword, OmsOrderReturnApply oora) {
-        return orderClient.returnOrderList(keyword,oora);
-    }
+        @ResponseBody
+        @RequestMapping(value = "/returnOrderList", method = RequestMethod.GET)
+        public JyyData returnOrderList(OmsOrderReturnApply oora) {
+            System.out.println(oora);
+            JyyData jd = (JyyData) orderClient.returnOrderList(oora);
+            return jd;
+        }
 
-    @ResponseBody
-    @RequestMapping("updateReturnOrder")
-    public CommonResult<Object> updateReturnOrder(OmsUpdateStatusParam ousp) {
-        return orderClient.updateReturnOrder(ousp);
-    }
-
-    @ResponseBody
-    @RequestMapping("findCauseOrder")
-    public OorrData findCauseOrder(OmsOrderReturnReason oorr) {
-        return orderClient.findCauseOrder(oorr);
-    }
-
-    @ResponseBody
-    @RequestMapping("deleteCauseOrder")
-    public CommonResult deleteCauseOrder(String ids) {
-        return orderClient.deleteCauseOrder(ids);
-    }
-
-    @ResponseBody
-    @RequestMapping("addCauseOrder")
-    public CommonResult<Object> addCauseOrder(OmsOrderReturnReason oorr) {
-        return orderClient.addCauseOrder(oorr);
-    }
-
-    @ResponseBody
-    @RequestMapping("updateInitiateMode")
-    public CommonResult<Object> updateInitiateMode(OmsOrderReturnReason oorr) {
-        return orderClient.updateInitiateMode(oorr);
-    }
-
-    @ResponseBody
-    @RequestMapping("findByCauseOrderId")
-    public OorrClassData findByCauseOrderId(Long id) {
-        return orderClient.findByCauseOrderId(id);
-    }
-
-    @ResponseBody
-    @RequestMapping("updateCauseOrder")
-    public CommonResult<Object> updateCauseOrder(OmsOrderReturnReason oorr) {
-        return orderClient.updateCauseOrder(oorr);
-    }
-}
+        }

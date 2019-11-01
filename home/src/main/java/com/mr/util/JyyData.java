@@ -1,11 +1,13 @@
 package com.mr.util;
 
-public class JyyData {
+import org.apache.poi.ss.formula.functions.T;
+
+public class JyyData<T> {
 
     private long code=200;
     private String message;
 
-    private JyyPage data;
+    private T data;
 
     public long getCode() {
         return code;
@@ -23,11 +25,11 @@ public class JyyData {
         this.message = message;
     }
 
-    public JyyPage getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(JyyPage data) {
+    public void setData(T data) {
         this.data = data;
     }
 

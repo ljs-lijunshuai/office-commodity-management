@@ -8,42 +8,18 @@ import com.mr.util.JyyClassData;
 import com.mr.util.JyyData;
 import com.mr.util.ut.OorrClassData;
 import com.mr.util.ut.OorrData;
+import feign.Response;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-@FeignClient("manageOrder")
+@FeignClient("manage-order")
 public interface OrderClient {
 
-    @RequestMapping("/returnOrder/deleteReturnOrder")
-    CommonResult<Object> deleteReturnOrder(String ids);
+    @RequestMapping("/returnOrder/test")
+    String test();
 
-    @RequestMapping("/returnOrder/findById")
-    JyyClassData findById(OmsOrderReturnApply oora);
-
-    @RequestMapping("/returnOrder/returnOrderList")
-    JyyData returnOrderList(String keyword, OmsOrderReturnApply oora);
-
-    @RequestMapping("/returnOrder/updateReturnOrder")
-    CommonResult<Object> updateReturnOrder(OmsUpdateStatusParam ousp);
-
-    /********退货原因******8*/
-    @RequestMapping("/returnOrder/findCauseOrder")
-    OorrData findCauseOrder(OmsOrderReturnReason oorr);
-
-    @RequestMapping("/returnOrder/deleteCauseOrder")
-    CommonResult deleteCauseOrder(String ids);
-
-    @RequestMapping("/returnOrder/addCauseOrder")
-    CommonResult<Object> addCauseOrder(OmsOrderReturnReason oorr);
-
-    @RequestMapping("/returnOrder/updateInitiateMode")
-    CommonResult<Object> updateInitiateMode(OmsOrderReturnReason oorr);
-
-    @RequestMapping("/returnOrder/findByCauseOrderId")
-    OorrClassData findByCauseOrderId(Long id);
-
-    @RequestMapping("/returnOrder/updateCauseOrder")
-    CommonResult<Object> updateCauseOrder(OmsOrderReturnReason oorr);
+    @RequestMapping(value="/returnOrder/returnOrderList",method = RequestMethod.POST)
+    JyyData returnOrderList(OmsOrderReturnApply oora);
 
 
 }

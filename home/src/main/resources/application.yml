@@ -1,5 +1,8 @@
 server:
   port: 8764
+feign:
+  httpclient:
+    enabled: true
 eureka:
   client:
     service-url:

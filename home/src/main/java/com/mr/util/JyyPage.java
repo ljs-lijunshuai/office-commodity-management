@@ -1,16 +1,17 @@
 package com.mr.util;
 
 import com.mr.entity.OmsOrderReturnApply;
+import org.apache.poi.ss.formula.functions.T;
 
 import java.util.List;
 
-public class JyyPage {
+public class JyyPage<T> {
 
     private Integer pageNum;
     private Integer pageSize;
     private Integer totalPage;
     private Long total;
-    private List<OmsOrderReturnApply> list;
+    private T list;
 
 
     public void calculate() {
@@ -49,11 +50,11 @@ public class JyyPage {
         this.total = total;
     }
 
-    public List<OmsOrderReturnApply> getList() {
+    public T getList() {
         return list;
     }
 
-    public void setList(List<OmsOrderReturnApply> list) {
+    public void setList(T list) {
         this.list = list;
     }
 }
