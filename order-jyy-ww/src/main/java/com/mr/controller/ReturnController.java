@@ -8,8 +8,6 @@ import com.mr.util.CommonResult;
 import com.mr.util.JyyClassData;
 import com.mr.util.JyyData;
 import com.mr.util.JyyPage;
-import com.mr.util.ut.OorrClassData;
-import com.mr.util.ut.OorrData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -66,8 +64,8 @@ public class ReturnController {
      *@修改人和其它信息
      */
     @ResponseBody
-    @PostMapping("/deleteReturnOrder")
-    public CommonResult<Object> deleteReturnOrder(String ids){
+    @RequestMapping(value = "/deleteReturnOrder",method = RequestMethod.POST)
+    public CommonResult<Object> deleteReturnOrder(@RequestBody String ids){
         Integer co = null;
         int i = iReturnService.deleteReturnOrder(ids);
         if(i>0) co=200;
@@ -83,8 +81,8 @@ public class ReturnController {
      *@修改人和其它信息
      */
     @ResponseBody
-    @GetMapping("/findById")
-    public JyyClassData findById(OmsOrderReturnApply oora){
+    @RequestMapping(value="/findById",method = RequestMethod.POST)
+    public JyyClassData findById(@RequestBody OmsOrderReturnApply oora){
         OmsOrderReturnApply oo = iReturnService.findById(oora);
         JyyClassData jcd = new JyyClassData();
         jcd.setData(oo);
@@ -101,10 +99,9 @@ public class ReturnController {
      *@修改人和其它信息
      */
     @ResponseBody
-    @RequestMapping("/updateReturnOrder")
-    public CommonResult<Object> updateReturnOrder(Integer id,@RequestBody OmsUpdateStatusParam ousp){
+    @RequestMapping(value = "/updateReturnOrder",method = RequestMethod.POST)
+    public CommonResult<Object> updateReturnOrder(@RequestBody OmsUpdateStatusParam ousp){
         Integer co = null;
-        ousp.setId((long)id);
         int i = iReturnService.updateReturnOrder(ousp);
         if(i>0) co=200;
         return CommonResult.success(co);
@@ -120,9 +117,9 @@ public class ReturnController {
      *@修改人和其它信息
      */
     @ResponseBody
-    @RequestMapping("/findCauseOrder")
-    public OorrData findCauseOrder(OmsOrderReturnReason oorr){
-        OorrData od = iReturnService.findCauseOrder(oorr);
+    @RequestMapping(value = "/findCauseOrder",method = RequestMethod.POST)
+    public JyyData findCauseOrder(@RequestBody OmsOrderReturnReason oorr){
+        JyyData od = iReturnService.findCauseOrder(oorr);
         return od;
     }
 
@@ -135,8 +132,8 @@ public class ReturnController {
      *@修改人和其它信息
      */
     @ResponseBody
-    @RequestMapping("/deleteCauseOrder")
-    public CommonResult deleteCauseOrder(String ids){
+    @RequestMapping(value = "/deleteCauseOrder",method = RequestMethod.POST)
+    public CommonResult deleteCauseOrder(@RequestBody String ids){
         Integer co =null;
         int i = iReturnService.deleteCauseOrder(ids);
         if(i>0) co=200;
@@ -152,7 +149,7 @@ public class ReturnController {
      *@修改人和其它信息
      */
     @ResponseBody
-    @RequestMapping("/addCauseOrder")
+    @RequestMapping(value = "/addCauseOrder",method = RequestMethod.POST)
     public CommonResult addCauseOrder(@RequestBody OmsOrderReturnReason oorr){
         Integer co =null;
         int i = iReturnService.addCauseOrder(oorr);
@@ -168,10 +165,9 @@ public class ReturnController {
      *@修改人和其它信息
      */
     @ResponseBody
-    @RequestMapping("/updateInitiateMode")
-    public CommonResult updateInitiateMode(OmsOrderReturnReason oorr,Long ids){
+    @RequestMapping(value = "/updateInitiateMode",method = RequestMethod.POST)
+    public CommonResult updateInitiateMode(@RequestBody OmsOrderReturnReason oorr){
         Integer co =null;
-        oorr.setId(ids);
         int i = iReturnService.updateInitiateMode(oorr);
         if(i>0) co=200;
         return CommonResult.success(co);
@@ -185,14 +181,14 @@ public class ReturnController {
      *@修改人和其它信息
      */
     @ResponseBody
-    @RequestMapping("/findByCauseOrderId")
-    public OorrClassData findByCauseOrderId(Long id){
-        OorrClassData oc = iReturnService.findByCauseOrderId(id);
+    @RequestMapping(value = "/findByCauseOrderId",method = RequestMethod.POST)
+    public JyyClassData findByCauseOrderId(@RequestBody Long id){
+        JyyClassData oc = iReturnService.findByCauseOrderId(id);
         return oc;
     }
 
     @ResponseBody
-    @RequestMapping("/updateCauseOrder")
+    @RequestMapping(value = "/updateCauseOrder",method = RequestMethod.POST)
     public CommonResult updateCauseOrder(@RequestBody OmsOrderReturnReason oorr){
         Integer co =null;
         int i = iReturnService.updateCauseOrder(oorr);

@@ -17,10 +17,10 @@
                 and handle_man=#{handleMan}
             </if>
             <if test="createTime!=null">
-                and data(create_time,'yyyy-MM-dd')=data(#{createTime},'yyyy-MM-dd')
+                and date(create_time)=date(#{createTime})
             </if>
             <if test="handleTime!=null">
-                and data(handle_time,'yyyy-MM-dd')=data(#{handleTime},'yyyy-MM-dd')
+                and date(handle_time)=date(#{handleTime})
             </if>
         </where>
     </select>
@@ -39,10 +39,10 @@
                and handle_man=#{handleMan}
             </if>
             <if test="createTime!=null">
-               and data(create_time,'yyyy-MM-dd')=data(#{createTime},'yyyy-MM-dd')
+                and date(create_time)=date(#{createTime})
             </if>
             <if test="handleTime!=null">
-               and data(handle_time,'yyyy-MM-dd')=data(#{handleTime},'yyyy-MM-dd')
+                and date(handle_time)=date(#{handleTime})
             </if>
         </where>
         limit #{totalPage},#{pageSize}

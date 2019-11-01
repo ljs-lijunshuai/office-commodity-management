@@ -7,11 +7,9 @@ import com.mr.entity.OmsUpdateStatusParam;
 import com.mr.mapper.IReturnMapper;
 import com.mr.service.IReturnService;
 import com.mr.util.EsUtil;
+import com.mr.util.JyyClassData;
 import com.mr.util.JyyData;
 import com.mr.util.JyyPage;
-import com.mr.util.ut.OorrClassData;
-import com.mr.util.ut.OorrData;
-import com.mr.util.ut.OorrPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -77,10 +75,10 @@ public class ReturnServiceImpl implements IReturnService {
     /*******************************************************************************************/
 
     @Override
-    public OorrData findCauseOrder(OmsOrderReturnReason oorr) {
+    public JyyData findCauseOrder(OmsOrderReturnReason oorr) {
 
-        OorrPage op = new OorrPage();
-        OorrData od = new OorrData();
+        JyyPage op = new JyyPage();
+        JyyData od = new JyyData();
         op.setPageNum(oorr.getPageNum());
         int i = (oorr.getPageNum() - 1) * oorr.getPageSize();
         oorr.setTotalPage(i);
@@ -115,9 +113,9 @@ public class ReturnServiceImpl implements IReturnService {
     }
 
     @Override
-    public OorrClassData findByCauseOrderId(Long id) {
+    public JyyClassData findByCauseOrderId(Long id) {
         OmsOrderReturnReason or = iReturnMapper.findByCauseOrderId(id);
-        OorrClassData ocd = new OorrClassData();
+        JyyClassData ocd = new JyyClassData();
         ocd.setData(or);
         return ocd;
     }

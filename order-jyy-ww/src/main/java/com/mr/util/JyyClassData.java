@@ -4,11 +4,11 @@ package com.mr.util;
 import com.mr.entity.OmsOrderReturnApply;
 import org.apache.poi.ss.formula.functions.T;
 
-public class JyyClassData {
+public class JyyClassData<T> {
 
     private long code=200;
     private String message;
-    private OmsOrderReturnApply data;
+    private T data;
 
 
     public long getCode() {
@@ -27,11 +27,11 @@ public class JyyClassData {
         this.message = message;
     }
 
-    public OmsOrderReturnApply getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(OmsOrderReturnApply data) {
+    public void setData(T data) {
         this.data = data;
     }
 }
