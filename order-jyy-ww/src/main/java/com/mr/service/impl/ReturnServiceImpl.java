@@ -49,14 +49,11 @@ public class ReturnServiceImpl implements IReturnService {
     }
 
     @Override
-    public JyyData returnOrderList(Integer pageSize, Integer pageNumber) {
-        OmsOrderReturnApply oora = new OmsOrderReturnApply();
+    public JyyData returnOrderList(OmsOrderReturnApply oora) {
         JyyPage j = new JyyPage();
         JyyData jd = new JyyData();
-        j.setPageNum(pageNumber);
-        oora.setPageNum(pageNumber);
-        oora.setPageSize(pageSize);
-        int i = (pageNumber - 1) * pageSize;
+        j.setPageNum(oora.getPageNum());
+        int i = (oora.getPageNum() - 1) * oora.getPageSize();
         oora.setTotalPage(i);
         //分页查询总条数
         int totalNum= iReturnMapper.findTotalNum(oora);

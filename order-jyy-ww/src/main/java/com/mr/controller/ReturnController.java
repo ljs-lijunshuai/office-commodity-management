@@ -51,7 +51,7 @@ public class ReturnController {
     @RequestMapping(value = "/returnOrderList",method = RequestMethod.POST)
     public JyyData returnOrderList(@RequestBody OmsOrderReturnApply oora){
         String keyword=null;
-        JyyData li = iReturnService.returnOrderList(keyword,oora);
+        JyyData li = iReturnService.returnOrderList(oora);
         return li;
     }
 
