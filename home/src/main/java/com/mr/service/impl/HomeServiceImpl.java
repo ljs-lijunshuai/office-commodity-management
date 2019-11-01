@@ -23,8 +23,8 @@ public class HomeServiceImpl implements IHomeService {
      */
     @Override
     public CommonResult login(UmsAdmin umsAdmin) {
-        CommonResult cr = new CommonResult();
-        /*根据用户名查询*/
+        /*CommonResult cr = new CommonResult();
+        *//*根据用户名查询*//*
         if (umsAdmin.getUsername()==null&&umsAdmin.getPassword()==null){
             cr.setCode(500);
             cr.setMessage("账号不存在");
@@ -37,7 +37,7 @@ public class HomeServiceImpl implements IHomeService {
             cr.setMessage("账号不存在");
             cr.setData(null);
             return cr;
-        }
+        }*/
 
         return null;
     }

@@ -19,7 +19,7 @@ public interface IReturnService {
 
     OmsOrderReturnApply findById(OmsOrderReturnApply oora);
 
-    JyyData returnOrderList(String keyword, OmsOrderReturnApply oora);
+    JyyData returnOrderList(Integer pageSize, Integer pageNumber);
 
     int updateReturnOrder(OmsUpdateStatusParam ousp);
 
@@ -35,4 +35,5 @@ public interface IReturnService {
     OorrClassData findByCauseOrderId(Long id);
 
     int updateCauseOrder(OmsOrderReturnReason oorr);
+
 }

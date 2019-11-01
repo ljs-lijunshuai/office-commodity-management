@@ -32,7 +32,7 @@ public class SmsHomeRecommendSubject {
     }
 
     public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName == null ? null : subjectName.trim();
+        this.subjectName = subjectName;
     }
 
     public Integer getRecommendStatus() {
